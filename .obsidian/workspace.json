@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "c8b1495a4857dd2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "6527ed1209ef3e52",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cf4e5ec5cfa06a92",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "iOS使用特殊字体.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "69d73b85d0ef1597",
+    "type": "split",
+    "children": [
+      {
+        "id": "d04f0b4b9b84cff1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "18899b2f02fc5828",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b990f0744fb7a89a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "80abb7192bb7aab2",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7a819dd1a6fd6c8d",
+    "type": "split",
+    "children": [
+      {
+        "id": "98feb2f25943d5fe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "41c1cd6b4914d157",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "iOS使用特殊字体.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d4424510777b59ad",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "iOS使用特殊字体.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f476109284228af1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d4cb168b3f05cd30",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "iOS使用特殊字体.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "cf4e5ec5cfa06a92",
+  "lastOpenFiles": [
+    "Pasted image 20230410214028.png",
+    "Pasted image 20230410214015.png",
+    "Pasted image 20230410191903.png.md",
+    "Pasted image 20230410213911.png",
+    "Pasted image 20230410213846.png",
+    "iOS使用特殊字体.md",
+    "Pasted image 20230410191903.png"
+  ]
+}
