@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "42d1f4893d3294b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "git commit test.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS使用特殊字体.md",
+                "file": "git commit test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS使用特殊字体.md",
+                "file": "git commit test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS使用特殊字体.md"
+                "file": "git commit test.md"
               }
             }
           }
@@ -146,15 +159,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "18899b2f02fc5828",
+  "active": "42d1f4893d3294b2",
   "lastOpenFiles": [
+    "iOS使用特殊字体.md",
+    "git commit test.md",
     "未命名",
     "Pasted image 20230410214028.png",
     "Pasted image 20230410214015.png",
     "Pasted image 20230410191903.png.md",
     "Pasted image 20230410213911.png",
     "Pasted image 20230410213846.png",
-    "iOS使用特殊字体.md",
     "Pasted image 20230410191903.png"
   ]
 }
