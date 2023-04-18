@@ -4,67 +4,92 @@
     "type": "split",
     "children": [
       {
-        "id": "6527ed1209ef3e52",
-        "type": "tabs",
+        "id": "d5fc587e1dda01d4",
+        "type": "split",
         "children": [
           {
-            "id": "cf4e5ec5cfa06a92",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "iOS/OC/iOS使用特殊字体.md",
-                "mode": "source",
-                "source": false
+            "id": "6527ed1209ef3e52",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "cf4e5ec5cfa06a92",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "iOS/OC/iOS使用特殊字体.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "59bdd49ef447d71a",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {}
+                }
+              },
+              {
+                "id": "4ba9ae4510462f5a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "iOS/OC/面向对象类程序设计.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "51c13bf1efa7452b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "C++/面向对象的程序设计.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              },
+              {
+                "id": "4c61a1c189143481",
+                "type": "leaf",
+                "state": {
+                  "type": "image",
+                  "state": {
+                    "file": "Pasted image 20230418171043.png"
+                  }
+                },
+                "group": "81f95ea182e602b1"
               }
-            }
+            ],
+            "currentTab": 4
           },
           {
-            "id": "59bdd49ef447d71a",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "4ba9ae4510462f5a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "iOS/OC/面向对象类程序设计.md",
-                "mode": "source",
-                "source": false
+            "id": "a81fd4c3b2ae8f12",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "85893604c66b0c84",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Pasted image 20230418171043.png",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                },
+                "group": "81f95ea182e602b1"
               }
-            }
-          },
-          {
-            "id": "51c13bf1efa7452b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/面向对象的程序设计.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4c61a1c189143481",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "C++/面向对象的程序设计.md",
-                "mode": "source",
-                "source": false
-              }
-            }
+            ]
           }
         ],
-        "currentTab": 4
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -130,7 +155,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/面向对象的程序设计.md",
+                "file": "Pasted image 20230418171043.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +172,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/面向对象的程序设计.md",
+                "file": "Pasted image 20230418171043.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +195,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/面向对象的程序设计.md"
+                "file": "Pasted image 20230418171043.png"
               }
             }
           }
@@ -191,10 +216,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4c61a1c189143481",
+  "active": "85893604c66b0c84",
   "lastOpenFiles": [
-    "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
+    "C++/C++关键字（续）.md",
     "iOS/OC/面向对象类程序设计.md",
     "Pasted image 20230418171043.png",
     "iOS/OC/ARC.md",
