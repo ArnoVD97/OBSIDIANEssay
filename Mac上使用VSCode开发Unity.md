@@ -75,3 +75,58 @@ git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 ```
 ## 安装oh-my-zsh
 上面提到`zsh`，我用的是`oh-my-zsh`，相信大家用了`oh-my-zsh`也会爱上它。
+Oh My Zsh 是一个令人愉快的、开源的、社区驱动的框架，用于管理您的 Zsh 配置。它捆绑了数千个有用的功能、助手、插件、主题和一些让你大喊大叫的东西…“哦，我的ZSH！”
+oh-my-zsh官网：https://ohmyz.sh/
+oh-my-zsh开源地址：https://github.com/ohmyzsh/ohmyzsh
+oh-my-zsh主题：https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+安装步骤
+```
+# 安装zsh
+brew install zsh
+
+# 安装git
+brew install git
+
+# 安装oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+```
+失败使用国内源
+```
+sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+```
+
+你可以在`~/.oh-my-zsh/themes`目录中看到它的各种主题配置，
+```
+# 查看系统里面有什么shell
+cat /etc/shells
+
+# 查询当前使用的shell
+echo $SHELL
+
+# 查看zsh的位置
+which zsh
+
+# 切换为zsh，根据自己的zsh所在地址进行切换
+chsh -s /usr/bin/zsh
+
+```
+
+如果想切换回`bash`，可以执行
+
+```
+chsh -s /bin/bash
+```
+最后执行一下
+
+```
+source ~/.zshrc
+```
+
+## Git无法自动补全的问题
+mac自带的git工具无法自动补全，比如我输入git com然后按tab键，它并不会自动帮我补全成git commit，切换分支等，它也不会自动帮我补全分支名，这样很不方便。
+
+你可以使用brew重新安装git，
+
+brew install git
+
