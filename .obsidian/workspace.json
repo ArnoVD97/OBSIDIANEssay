@@ -69,14 +69,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/面向对象类程序设计.md",
+                "file": "iOS/OC/ARC.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "776c766c5c1b9288",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "iOS/OC/RunTime机制.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -142,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/面向对象类程序设计.md",
+                "file": "iOS/OC/RunTime机制.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -159,7 +171,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/面向对象类程序设计.md",
+                "file": "iOS/OC/RunTime机制.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,7 +194,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/面向对象类程序设计.md"
+                "file": "iOS/OC/RunTime机制.md"
               }
             }
           }
@@ -203,14 +215,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f4c33ea2c3d1e8c1",
+  "active": "776c766c5c1b9288",
   "lastOpenFiles": [
-    "C++/C++基本.md",
+    "iOS/OC/ARC.md",
+    "iOS/OC/RunTime机制.md",
     "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
-    "Pasted image 20230418171043.png",
+    "C++/C++基本.md",
     "iOS/OC/面向对象类程序设计.md",
-    "iOS/OC/ARC.md",
+    "Pasted image 20230418171043.png",
     "iOS/OC",
     "C++",
     "iOS",
