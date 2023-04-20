@@ -26,4 +26,8 @@ unity3d-pack插件是一个插件套件，它会自动安装对应的依赖插�
 export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/Current
 
 ```
-在终端执行`mono`，如果输出参数提示，则说明`mono`安装成功了，
+在终端执行`mono`，如果输出参数提示，则说明`mono`安装成功了。
+## 安装.NET Core SDK
+你的`VSCode`估计会弹出这个提示：`.Net Core SDK`找不到。
+使用brew来安装.net sdk
+`brew install dotnet-sdk`
