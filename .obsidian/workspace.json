@@ -117,7 +117,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/未命名.md",
+                "file": "iOS/OC/内存管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -174,7 +174,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -190,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/未命名.md",
+                "file": "iOS/OC/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -207,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/未命名.md",
+                "file": "iOS/OC/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -230,7 +231,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/未命名.md"
+                "file": "iOS/OC/内存管理.md"
               }
             }
           }
@@ -253,8 +254,8 @@
   },
   "active": "400996168727032c",
   "lastOpenFiles": [
+    "iOS/OC/避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/内存管理.md",
-    "iOS/OC/未命名.md",
     "iOS/OC/ARC.md",
     "Mac上使用VSCode开发Unity.md",
     "Pasted image 20230420202844.png",
