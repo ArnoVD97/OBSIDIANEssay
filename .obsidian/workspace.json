@@ -93,18 +93,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/ARC.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e9c3108154d9881b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "iOS/OC/实用内存管理.md",
                 "mode": "source",
                 "source": false
@@ -112,7 +100,7 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -240,15 +228,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e9c3108154d9881b",
+  "active": "518cd68140eba269",
   "lastOpenFiles": [
+    "Pasted image 20230422210512.png",
+    "iOS/OC/ARC.md",
     "iOS/OC/实用内存管理.md",
     "iOS/OC/KVO.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
-    "iOS/OC/ARC.md",
     "Mac上使用VSCode开发Unity.md",
     "Pasted image 20230420202844.png",
     "Pasted image 20230420202639.png",
