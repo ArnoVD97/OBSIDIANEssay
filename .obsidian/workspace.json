@@ -117,7 +117,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#目前不理解以下内容",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -134,12 +134,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -216,12 +216,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f4c33ea2c3d1e8c1",
+  "active": "b990f0744fb7a89a",
   "lastOpenFiles": [
+    "未命名.canvas",
+    "iOS/OC/实用内存管理.md",
     "iOS/OC/ARC.md",
     "iOS/OC/RunTime机制.md",
     "iOS/OC/内存管理.md",
-    "iOS/OC/实用内存管理.md",
     "Pasted image 20230422210512.png",
     "iOS/OC/KVO.md",
     "iOS/OC/面向对象类程序设计.md",
