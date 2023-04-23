@@ -93,7 +93,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "iOS/OC/内存管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -167,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "iOS/OC/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "iOS/OC/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -207,7 +207,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/实用内存管理.md"
+                "file": "iOS/OC/内存管理.md"
               }
             }
           }
@@ -230,9 +230,9 @@
   },
   "active": "518cd68140eba269",
   "lastOpenFiles": [
+    "iOS/OC/实用内存管理.md",
     "Pasted image 20230422210512.png",
     "iOS/OC/ARC.md",
-    "iOS/OC/实用内存管理.md",
     "iOS/OC/KVO.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
