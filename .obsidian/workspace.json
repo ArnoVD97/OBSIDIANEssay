@@ -67,9 +67,24 @@
             "id": "f4c33ea2c3d1e8c1",
             "type": "leaf",
             "state": {
+              "type": "canvas",
+              "state": {
+                "file": "未命名.canvas",
+                "viewState": {
+                  "x": -115,
+                  "y": -110,
+                  "zoom": 0
+                }
+              }
+            }
+          },
+          {
+            "id": "85178654fb8fe395",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "微机原理/DOSBox.md",
                 "mode": "source",
                 "source": false
               }
@@ -88,7 +103,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -134,8 +149,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -155,7 +169,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "微机原理/DOSBox.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +186,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "微机原理/DOSBox.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -195,7 +209,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/实用内存管理.md"
+                "file": "微机原理/DOSBox.md"
               }
             }
           }
@@ -216,9 +230,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b990f0744fb7a89a",
+  "active": "85178654fb8fe395",
   "lastOpenFiles": [
     "未命名.canvas",
+    "微机原理/DOSBox.md",
+    "微机原理",
+    "Mac上使用VSCode开发Unity.md",
     "iOS/OC/实用内存管理.md",
     "iOS/OC/ARC.md",
     "iOS/OC/RunTime机制.md",
@@ -228,7 +245,6 @@
     "iOS/OC/面向对象类程序设计.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
-    "Mac上使用VSCode开发Unity.md",
     "Pasted image 20230420202844.png",
     "Pasted image 20230420202639.png",
     "C++/C++关键字（续）.md",
