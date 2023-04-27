@@ -1,3 +1,7 @@
 {
-  "accentColor": "#8265e2"
+  "accentColor": "#8265e2",
+  "textFontFamily": "Smiley Sans",
+  "interfaceFontFamily": "Smiley Sans",
+  "monospaceFontFamily": "Smiley Sans",
+  "baseFontSize": 19
 }

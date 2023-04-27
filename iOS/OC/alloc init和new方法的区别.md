@@ -10,3 +10,19 @@
 **}**
 
 # alloc init源码
+
+**+ alloc**
+
+**{**
+
+**return (*_zoneAlloc)((Class)self, 0, malloc_default_zone());**
+
+**}**
+
+**- init**
+
+**{**
+
+**return self;**
+
+**}**
