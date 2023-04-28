@@ -25,7 +25,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md",
+                "file": "C++/C++基本.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dc99340ae053581e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C++/命名空间.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +115,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -169,7 +181,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md",
+                "file": "C++/命名空间.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -186,7 +198,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md",
+                "file": "C++/命名空间.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -209,7 +221,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md"
+                "file": "C++/命名空间.md"
               }
             }
           }
@@ -230,13 +242,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "08d7f551e7ed30ad",
+  "active": "dc99340ae053581e",
   "lastOpenFiles": [
-    "iOS/OC/iOS使用特殊字体.md",
-    "iOS/OC/alloc init和new方法的区别.md",
-    "iOS/OC/面向对象类程序设计.md",
-    "C++/面向对象的程序设计.md",
+    "C++/C++基本.md",
+    "C++/命名空间.md",
     "C++/C++关键字（续）.md",
+    "C++/面向对象的程序设计.md",
+    "iOS/OC/alloc init和new方法的区别.md",
+    "iOS/OC/iOS使用特殊字体.md",
+    "iOS/OC/面向对象类程序设计.md",
     "未命名.canvas",
     "微机原理/微型计算机基础概论.md",
     "iOS/OC/RunTime机制.md",
@@ -252,7 +266,6 @@
     "iOS/OC/KVO.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
-    "C++/C++基本.md",
     "iOS/OC",
     "C++",
     "iOS",
