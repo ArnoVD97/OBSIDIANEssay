@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "C++/命名空间.md",
                 "mode": "source",
                 "source": false
               }
@@ -157,7 +157,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -173,7 +174,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "C++/命名空间.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -190,7 +191,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/实用内存管理.md",
+                "file": "C++/命名空间.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -213,7 +214,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/实用内存管理.md"
+                "file": "C++/命名空间.md"
               }
             }
           }
@@ -236,8 +237,8 @@
   },
   "active": "dc99340ae053581e",
   "lastOpenFiles": [
-    "iOS/OC/内存管理.md",
     "iOS/OC/实用内存管理.md",
+    "iOS/OC/内存管理.md",
     "C++/C++基本.md",
     "C++/命名空间.md",
     "C++/C++关键字（续）.md",
