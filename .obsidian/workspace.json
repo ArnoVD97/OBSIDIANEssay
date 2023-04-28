@@ -37,18 +37,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/实用内存管理.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "59bdd49ef447d71a",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           },
           {
@@ -181,7 +173,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/实用内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -198,7 +190,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/实用内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -221,7 +213,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/内存管理.md"
+                "file": "iOS/OC/实用内存管理.md"
               }
             }
           }
@@ -244,11 +236,13 @@
   },
   "active": "dc99340ae053581e",
   "lastOpenFiles": [
+    "iOS/OC/内存管理.md",
     "iOS/OC/实用内存管理.md",
     "C++/C++基本.md",
+    "C++/命名空间.md",
     "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
-    "C++/命名空间.md",
+    "iOS/OC/ARC.md",
     "iOS/OC/alloc init和new方法的区别.md",
     "iOS/OC/iOS使用特殊字体.md",
     "iOS/OC/面向对象类程序设计.md",
@@ -261,8 +255,6 @@
     "Pasted image 20230418171043.png",
     "微机原理",
     "Mac上使用VSCode开发Unity.md",
-    "iOS/OC/ARC.md",
-    "iOS/OC/内存管理.md",
     "iOS/OC/KVO.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
