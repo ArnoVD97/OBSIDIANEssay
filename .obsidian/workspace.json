@@ -102,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -179,7 +180,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "18899b2f02fc5828",
+  "active": "c30b9c5e44d177a2",
   "lastOpenFiles": [
     "C++/C++继承.md",
     "C++/C++重载运算符和重载函数.md",
