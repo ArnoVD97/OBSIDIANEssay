@@ -23,9 +23,11 @@
             "id": "c30b9c5e44d177a2",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.2.7"
+                "file": "C++/C++基本.md",
+                "mode": "source",
+                "source": false
               }
             }
           },
@@ -100,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -116,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mac上使用VSCode开发Unity.md",
+                "file": "C++/C++基本.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mac上使用VSCode开发Unity.md",
+                "file": "C++/C++基本.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +159,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mac上使用VSCode开发Unity.md"
+                "file": "C++/C++基本.md"
               }
             }
           }
@@ -179,6 +182,8 @@
   },
   "active": "c30b9c5e44d177a2",
   "lastOpenFiles": [
+    "C++/命名空间.md",
+    "C++/C++关键字（续）.md",
     "iOS/OC/面向对象类程序设计.md",
     "iOS/OC/alloc init和new方法的区别.md",
     "iOS/OC/实用内存管理.md",
@@ -191,10 +196,8 @@
     "操作系统/操作系统的目标和作用.md",
     "未命名.md",
     "未命名.canvas",
-    "C++/命名空间.md",
     "操作系统",
     "C++/C++基本.md",
-    "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
     "iOS/OC/iOS使用特殊字体.md",
     "微机原理/微型计算机基础概论.md",
