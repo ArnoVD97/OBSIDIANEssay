@@ -42,7 +42,7 @@
 
 **传说那个时候已经有allocFromZone:这个方法，**
 
-**但是这个方法需要传个参数id myCompanion = [[TheClass allocFromZone:[self zone]] init];**
+**但是这个方法需要传个参数id myCompanion = [  [ TheClass allocFromZone:[self zone] ] init ];**
 
 **这个方法像下面这样：**
 

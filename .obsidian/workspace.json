@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "操作系统/操作系统的发展.md",
+                "file": "iOS/OC/内存管理.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -99,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md",
+                "file": "iOS/OC/内存管理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md",
+                "file": "iOS/OC/内存管理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/alloc init和new方法的区别.md"
+                "file": "iOS/OC/内存管理.md"
               }
             }
           }
@@ -160,9 +158,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ba11393001557193",
+  "active": "3e526b87bf6879fa",
   "lastOpenFiles": [
+    "iOS/OC/面向对象类程序设计.md",
+    "iOS/OC/KVO.md",
+    "iOS/OC/Pasted image 20230410214015.png",
+    "iOS/OC/Pasted image 20230410214028.png",
     "操作系统/操作系统的发展.md",
+    "iOS/OC/alloc init和new方法的区别.md",
     "操作系统/操作系统的目标和作用.md",
     "未命名.md",
     "未命名.canvas",
@@ -174,9 +177,7 @@
     "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
     "iOS/OC/ARC.md",
-    "iOS/OC/alloc init和new方法的区别.md",
     "iOS/OC/iOS使用特殊字体.md",
-    "iOS/OC/面向对象类程序设计.md",
     "微机原理/微型计算机基础概论.md",
     "iOS/OC/RunTime机制.md",
     "Pasted image 20230420202844.png",
@@ -185,15 +186,12 @@
     "Pasted image 20230418171043.png",
     "微机原理",
     "Mac上使用VSCode开发Unity.md",
-    "iOS/OC/KVO.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
     "iOS/OC",
     "C++",
     "iOS",
     "git commit test.md",
-    "iOS/OC/Pasted image 20230410214028.png",
-    "iOS/OC/Pasted image 20230410214015.png",
     "Pasted image 20230410191903.png.md",
     "Pasted image 20230410213911.png",
     "Pasted image 20230410213846.png",
