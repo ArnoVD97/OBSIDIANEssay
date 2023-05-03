@@ -27,7 +27,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "操作系统/操作系统的发展.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "操作系统/操作系统的发展.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,9 +132,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "操作系统/操作系统的发展.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -155,10 +152,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3e526b87bf6879fa",
+  "active": "ba11393001557193",
   "lastOpenFiles": [
-    "操作系统/操作系统的目标和作用.md",
     "操作系统/操作系统的发展.md",
+    "操作系统/操作系统的目标和作用.md",
     "未命名.md",
     "未命名.canvas",
     "C++/命名空间.md",
