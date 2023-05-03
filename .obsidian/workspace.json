@@ -20,6 +20,16 @@
             }
           },
           {
+            "id": "c30b9c5e44d177a2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.2.7"
+              }
+            }
+          },
+          {
             "id": "ba11393001557193",
             "type": "leaf",
             "state": {
@@ -31,7 +41,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -74,6 +85,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "58b7323fcf8e2d2a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
               "state": {}
             }
           }
@@ -158,7 +177,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3e526b87bf6879fa",
+  "active": "c30b9c5e44d177a2",
   "lastOpenFiles": [
     "iOS/OC/面向对象类程序设计.md",
     "iOS/OC/alloc init和new方法的区别.md",
