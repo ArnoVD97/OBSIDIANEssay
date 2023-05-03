@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/面向对象类程序设计.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/面向对象类程序设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/内存管理.md",
+                "file": "iOS/OC/面向对象类程序设计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/内存管理.md"
+                "file": "iOS/OC/面向对象类程序设计.md"
               }
             }
           }
@@ -160,23 +160,23 @@
   },
   "active": "3e526b87bf6879fa",
   "lastOpenFiles": [
+    "iOS/OC/alloc init和new方法的区别.md",
+    "iOS/OC/实用内存管理.md",
+    "iOS/OC/ARC.md",
+    "iOS/OC/内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
     "iOS/OC/KVO.md",
     "iOS/OC/Pasted image 20230410214015.png",
     "iOS/OC/Pasted image 20230410214028.png",
     "操作系统/操作系统的发展.md",
-    "iOS/OC/alloc init和new方法的区别.md",
     "操作系统/操作系统的目标和作用.md",
     "未命名.md",
     "未命名.canvas",
     "C++/命名空间.md",
     "操作系统",
-    "iOS/OC/实用内存管理.md",
-    "iOS/OC/内存管理.md",
     "C++/C++基本.md",
     "C++/C++关键字（续）.md",
     "C++/面向对象的程序设计.md",
-    "iOS/OC/ARC.md",
     "iOS/OC/iOS使用特殊字体.md",
     "微机原理/微型计算机基础概论.md",
     "iOS/OC/RunTime机制.md",
