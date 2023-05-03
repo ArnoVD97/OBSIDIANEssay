@@ -3,5 +3,6 @@
   "textFontFamily": "Smiley Sans",
   "interfaceFontFamily": "Smiley Sans",
   "monospaceFontFamily": "Smiley Sans",
-  "baseFontSize": 19
+  "baseFontSize": 19,
+  "theme": "system"
 }
