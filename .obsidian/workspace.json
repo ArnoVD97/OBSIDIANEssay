@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/C++继承.md",
+                "file": "C++/C++重载运算符和重载函数.md",
                 "mode": "source",
                 "source": false
               }
@@ -102,8 +102,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -119,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++继承.md",
+                "file": "C++/C++重载运算符和重载函数.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++继承.md",
+                "file": "C++/C++重载运算符和重载函数.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++继承.md"
+                "file": "C++/C++重载运算符和重载函数.md"
               }
             }
           }
@@ -180,11 +179,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c30b9c5e44d177a2",
+  "active": "18899b2f02fc5828",
   "lastOpenFiles": [
+    "C++/C++继承.md",
+    "C++/C++重载运算符和重载函数.md",
+    "Mac上使用VSCode开发Unity.md",
     "Pasted image 20230503221435.png",
     "C++/命名空间.md",
-    "C++/C++继承.md",
     "C++/C++关键字（续）.md",
     "C++/C++基本.md",
     "iOS/OC/面向对象类程序设计.md",
@@ -209,7 +210,6 @@
     "Pasted image 20230420202639.png",
     "Pasted image 20230418171043.png",
     "微机原理",
-    "Mac上使用VSCode开发Unity.md",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
     "iOS/OC",

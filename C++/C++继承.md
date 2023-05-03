@@ -65,4 +65,123 @@ Total area: 35
 -   **公有继承（public）：当一个类派生自公有基类时，基类的**公有**成员也是派生类的**公有**成员，基类的**保护**成员也是派生类的**保护**成员，基类的**私有**成员不能直接被派生类访问，但是可以通过调用基类的**公有**和**保护**成员来访问。
 -   **保护继承（protected）：** 当一个类派生自**保护**基类时，基类的**公有**和**保护**成员将成为派生类的**保护**成员。
 -   **私有继承（private）：当一个类派生自私有基类时，基类的**公有**和**保护**成员将成为派生类的**私有**成员。
-- 
+# 多继承
+
+多继承即一个子类可以有多个父类，它继承了多个父类的特性。
+
+C++ 类可以从多个类继承成员，语法如下：
+```c++
+class <派生类名>:<继承方式1><基类名1>,<继承方式2><基类名2>,…
+{
+<派生类类体>
+};
+```
+
+
+其中，访问修饰符继承方式是 **public、protected** 或 **private** 其中的一个，用来修饰每个基类，各个基类之间用逗号分隔，如上所示。现在让我们一起看看下面的实例：
+```c++
+#include <iostream>
+
+**using** **namespace** std;
+
+// 基类 Shape
+
+**class** Shape
+
+{
+
+   **public**:
+
+      **void** setWidth(**int** w)
+
+      {
+
+         width = w;
+
+      }
+
+      **void** setHeight(**int** h)
+
+      {
+
+         height = h;
+
+      }
+
+   **protected**:
+
+      **int** width;
+
+      **int** height;
+
+};
+
+// 基类 PaintCost
+
+**class** PaintCost
+
+{
+
+   **public**:
+
+      **int** getCost(**int** area)
+
+      {
+
+         **return** area * 70;
+
+      }
+
+};
+
+// 派生类
+
+**class** Rectangle: **public** Shape, **public** PaintCost
+
+{
+
+   **public**:
+
+      **int** getArea()
+
+      {
+
+         **return** (width * height);
+
+      }
+
+};
+
+**int** main(**void**)
+
+{
+
+   Rectangle Rect;
+
+   **int** area;
+
+   Rect.setWidth(5);
+
+   Rect.setHeight(7);
+
+   area = Rect.getArea();
+
+   // 输出对象的面积
+
+   cout << "Total area: " << Rect.getArea() << endl;
+
+   // 输出总花费
+
+   cout << "Total paint cost: $" << Rect.getCost(area) << endl;
+
+   **return** 0;
+
+}
+```
+
+输出
+```c++
+Total area: 35
+Total paint cost: $2450
+```
+[[C++重载运算符和重载函数]]
