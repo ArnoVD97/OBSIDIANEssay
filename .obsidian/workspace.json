@@ -44,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -119,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/C++多态.md",
+                "file": "iOS/OC/alloc init和new方法的区别.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/C++多态.md",
+                "file": "iOS/OC/alloc init和new方法的区别.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -159,7 +159,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/C++多态.md"
+                "file": "iOS/OC/alloc init和new方法的区别.md"
               }
             }
           }
@@ -180,12 +180,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c30b9c5e44d177a2",
+  "active": "ba11393001557193",
   "lastOpenFiles": [
-    "C++/C++重载运算符和重载函数.md",
-    "C++/C++多态.md",
-    "C++/C++继承.md",
     "Mac上使用VSCode开发Unity.md",
+    "C++/C++多态.md",
+    "C++/C++重载运算符和重载函数.md",
+    "C++/C++继承.md",
     "Pasted image 20230503221435.png",
     "C++/命名空间.md",
     "C++/C++关键字（续）.md",
