@@ -48,3 +48,25 @@
 
 ```
 如果我们想要subView的宽度等于高度的2倍，这时候该怎么办呢？我们需要指定equalTo()里面具体的值(实际上是传一个 MASViewAttribute 对象)，而不是简单的传一个控件对象，示例代码如下所示。
+```c
+[subView mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.width.equalTo(subView.mas_height).multipliedBy(2);
+}];
+
+```
+我们就简单叙述一下约束优先级设置，Masonry为我们提供了三个优先级的方法，priorityLow()、priorityMedium()、priorityHigh()，这三个方法内部对应着不同的默认优先级，当然我们也可以使用priority() 设置具体的数值。示例代码如下所示，关于约束优先级具体使用也会在后面的模块中说到。
+```c
+[subView mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.width.equalTo(subView4).priorityLow();
+   make.width.equalTo(@[subView2, subView3,@100]).priorityHigh();
+   make.width.equalTo(@300).priority(888);
+}];
+
+```
+如果我们想让subView的宽度是 父视图的宽度的30% + 10个单位长度，这时候我们该怎么设置呢？其实这时候有点类似于 CSS 中的 calc() 函数，我们肯定不能设置两条约束条件，如果那样设置了，后面的约束条件就会把前面的约束条件给覆盖掉，对此我们如下设置即可。(offset方法和multipliedBy方法顺序无影响)
+```c
+[subView mas_makeConstraints:^(MASConstraintMaker *make) {
+  make.width.equalTo(self).offset(10).multipliedBy(0.3);
+}];
+
+```
