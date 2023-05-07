@@ -146,7 +146,22 @@ Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 
 
     }];
 ```
-调用的方法是
+调用的方法是`UIView`的分类`MASAdditions`中的`mas_makeConstraints:`方法
+```c
+/**
+ *  Creates a MASConstraintMaker with the callee view.
+ *  Any constraints defined are added to the view or the appropriate superview once the block has finished executing
+ *  **@param** block scope within which you can build up the constraints which you wish to apply to the view.
+ *  **@return** Array of created MASConstraints
+ *  使用被调用的视图创建一个MASConstraintMaker。一旦代码块执行完毕，任何定义的约束
+ *  都会被添加到视图或适当的父视图中
+ *  @参数 块作用域，您可以在其中构建您希望应用于视图的约束。
+ *  @返回 创建的MASConstraints的数组
+ */
+
+- (NSArray *)mas_makeConstraints:(**void**(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
+```
+实现
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block {
 
@@ -160,7 +175,13 @@ Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 
 
 }
 ```
+该方法会创建一个 `MASConstraintMaker` 对象，并将当前视图作为其初始化参数。然后，该方法将传入的 `block` 块作为参数传递给 `MASConstraintMaker` 对象，并调用其中的方法来描述视图的约束。最后，该方法调用 `install` 方法，将约束应用到当前视图上，并返回一个包含所有约束的数组。
 
+首先，该方法将 `translatesAutoresizingMaskIntoConstraints` 属性设置为 `NO`，这是为了确保使用自动布局约束而非默认的 frame 布局方式。
+
+然后，该方法创建了一个 `MASConstraintMaker` 对象，并将当前视图作为其初始化参数。接着，该方法将传入的 `block` 块作为参数传递给 `MASConstraintMaker` 对象，从而描述了视图之间的约束关系。这个 `block` 块参数中的 `MASConstraintMaker` 对象包含了各种用于描述视图约束的方法。在调用 `block` 块时，我们可以使用这些方法来描述当前视图与其它视图之间的相对位置、尺寸等信息。
+
+最后，该方法调用 `install` 方法，将约束应用到当前视图上，并返回一个包含所有约束的数组。`install` 方法会根据之前设置的约束信息计算出合适的约束，并将其添加到相应的视图上。在这个方法返回之后，当前视图就会按照之前设置的约束进行自动布局。
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
 
