@@ -183,6 +183,25 @@ Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 
 
 最后，该方法调用 `install` 方法，将约束应用到当前视图上，并返回一个包含所有约束的数组。`install` 方法会根据之前设置的约束信息计算出合适的约束，并将其添加到相应的视图上。在这个方法返回之后，当前视图就会按照之前设置的约束进行自动布局。
 ```c
+- (id)initWithView:(MAS_VIEW *)view {
+    self = [super init];
+    if (!self) return nil;
+    
+    self.view = view;
+    self.constraints = NSMutableArray.new;
+    
+    return self;
+}
+```
+该方法用于创建一个 `MASConstraintMaker` 对象，该对象包含了用于描述视图约束的方法。在使用 Masonry 自动布局库时，我们通常需要先创建一个 `MASConstraintMaker` 对象，然后使用其中的方法描述视图之间的约束关系，最后调用 `install` 方法将约束应用到相应的视图上。
+
+在这个方法中，我们首先调用父类 `NSObject` 的 `init` 方法进行初始化，如果初始化失败，则直接返回 `nil`。接着，我们将传入的 `view` 参数保存到 `self.view` 属性中。这个 `view` 参数指的是我们需要设置约束的视图对象。
+
+我们还创建了一个 `NSMutableArray` 类型的数组，用于保存后续添加的约束。我们将这个数组保存到 `self.constraints` 属性中。
+
+最后，该方法返回初始化后的 `MASConstraintMaker` 对象。这个对象包含了各种用于描述视图约束的方法，我们可以在之后的代码中使用这些方法来描述视图之间的约束关系。
+
+```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
 
     NSMutableArray *constraints = [NSMutableArray array];
