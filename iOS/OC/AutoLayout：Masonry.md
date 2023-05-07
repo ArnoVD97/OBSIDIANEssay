@@ -99,3 +99,11 @@
 }];
 
 ```
+上面的情况完全没有任何的问题,因为 intrinsicContentSize 属性的原因,我们轻松完成布局任务,但是当我们给 label2 添加一个 右边距等于superView.代码如下所示.
+```c
+[label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.left.equalTo(label1.mas_right);
+   make.right.equalTo(superView);
+   make.top.equalTo(superView);
+}];
+```
