@@ -135,6 +135,21 @@ AutoLayout使用的布局算法其实是 Cassowary，在WWDC2018，官方对其�
 
 iOS12的AutoLayout更多的利用了Cassowary算法的界面更新策略，使其真正完成了高效的界面线性策略计算。使其尽量成线程增加，减少性能问题，最后允许我唠叨一句，讲真的，性能再强也是干不过Frame布局方式的，但是胜在简单方便。
 # Masonry源码解析
+![在这里插入图片描述](https://img-blog.csdnimg.cn/8211735c83604e79ae32da6a3adfed53.png#pic_center)
+
+Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 `UIView`（`NSView`）、`NSArray`、`UIViewController` 进行分类扩展，从而提供自动布局的构建方法。
+对于一个一般的布局约束，研究一下约束方法
+```c
+   [_masParView mas_makeConstraints:^(MASConstraintMaker *make) {
+
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(100, 100, 100, 100));
+
+    }];
+```
+
+```
+
+```
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
 
