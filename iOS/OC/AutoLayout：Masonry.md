@@ -70,3 +70,32 @@
 }];
 
 ```
+
+## 约束优先级 以及 intrinsicContentSize相关问题
+约束优先级以及intrinsicContentSize的相关问题是我们不得不提到的问题.
+
+首先来说一下为什么要有约束优先级,我们给定一个场景,假设我们设置在一个superView(宽度为 200)中的一个View子视图的左右边距都为0,然后第二个约束是视图的宽度为100,这时候就会出现问题,因为如果左右边距都为0,那么视图宽度为200,这样和第二个约束条件就发生了冲突,系统是不允许这样的问题出现的.那么我们想不在删除约束的情况下,该如何解决这种问题呢?这时候我们就需要通过设置约束优先级来解决这一类问题,系统通过比较两个”相互冲突的约束”的优先级，从而忽略低优先级的某个约束，达到正确布局的目的约束优先级默认都是1000.所以我们给设定一个根据具体情况设置一个合适的值即可,代码如下所示.
+```c
+[subView mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.left.right.equalTo(self);
+   make.width.equalTo(@100).priority(888);
+}];
+
+```
+约束优先级主要是应对与单个视图中多个约束发生冲突的时候解决问题的方案.而 intrinsicContentSize 主要应对于多个视图约束发生冲突的解决方案,我们就对着具体的实例来进行分析.
+
+在最前面我们说到 在AutoLayout中， intrinsicContentSize的作用其实很简单，它会自己根据内容计算出控件的固有宽高，在布局过程当你不指定宽高约束的时候，它就会生效。
+
+这个属性是非常的好用,但是也会出现对应的问题.例如我们现在有两个Label,两个Lable的约束条件如下所示.
+```c
+[label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.left.equalTo(superView);
+   make.top.equalTo(superView);
+}];
+
+[label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+   make.left.equalTo(label1.mas_right);
+   make.top.equalTo(superView);
+}];
+
+```
