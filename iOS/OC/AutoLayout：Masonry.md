@@ -222,7 +222,194 @@ make.right.bottom.equalTo(superview).offset(-10);
 
 
 ## 下面是使用`make.width`点语法后的全部内部调用过程：
+```c
+// MASConstraintMaker
+- (MASConstraint *)width {
+    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeWidth];
+}
 
+- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
+    return [self constraint:nil addConstraintWithLayoutAttribute:layoutAttribute];
+}
+
+- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
+    // 根据 约束属性 和 视图 创建一个约束单元
+    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];
+    //创建约束，以约束单元作为约束的第一项
+    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];
+    if ([constraint isKindOfClass:MASViewConstraint.class]) {
+        //replace with composite constraint
+        // 如果是在已有约束的基础上再创建的约束，则将它们转换成一个 组合约束，并将原约束替换成该组合约束。
+        NSArray *children = @[constraint, newConstraint];
+        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];
+        compositeConstraint.delegate = self;
+        // 这里会将原来 make.width 添加的约束 替换成一个 组合约束（宽度约束 + 高度约束）
+        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];
+        // 返回组合约束
+        return compositeConstraint;
+    }
+    if (!constraint) {// 如果不是在已有约束的基础上再创建约束，则添加约束至列表
+        newConstraint.delegate = self;// 注意这一步，会对 make.top.left 这种情形产生关键影响
+        [self.constraints addObject:newConstraint];
+    }
+    return newConstraint;
+}
+```
+在第二次设置约束时（`.height`）会进入不同的流程。注意上面提到的`newConstraint.delegate`设置代理：
+```c
+//MAConstraint
+- (MASConstraint *)height {
+    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeHeight];
+}
+//MSViewConstraint
+- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {
+    NSAssert(!self.hasLayoutRelation, @"Attributes should be chained before defining the constraint relation");
+	//delegate是MASConstraintMaker
+    return [self.delegate constraint:self addConstraintWithLayoutAttribute:layoutAttribute];
+}
+// MASConstraintMaker
+- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute {...}
+
+```
+下面看一下`.mas_equalTo(@100)`的流程。
+```c
+// MASConstraint
+#define mas_equalTo(...)                 equalTo(MASBoxValue((__VA_ARGS__)))
+- (MASConstraint * (^)(id))equalTo {
+    return ^id(id attribute) {
+        // attribute 可能是 @100 类似的值，也可能是 view.mas_width等这样的
+        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);
+    };
+}
+- (MASConstraint * (^)(id))mas_equalTo {
+    return ^id(id attribute) {
+        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);
+    };
+}
+// MASViewConstraint
+- (MASConstraint * (^)(id, NSLayoutRelation))equalToWithRelation {
+    return ^id(id attribute, NSLayoutRelation relation) {
+        if ([attribute isKindOfClass:NSArray.class]) {//是数组（有多个约束）
+            NSAssert(!self.hasLayoutRelation, @"Redefinition of constraint relation");
+            NSMutableArray *children = NSMutableArray.new;
+            for (id attr in attribute) {
+                MASViewConstraint *viewConstraint = [self copy];
+                viewConstraint.layoutRelation = relation;
+                viewConstraint.secondViewAttribute = attr;// 设置约束第二项
+                [children addObject:viewConstraint];
+            }
+            MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];
+            compositeConstraint.delegate = self.delegate;
+            [self.delegate constraint:self shouldBeReplacedWithConstraint:compositeConstraint];
+            return compositeConstraint;
+        } else {//单个约束
+            NSAssert(!self.hasLayoutRelation || self.layoutRelation == relation && [attribute isKindOfClass:NSValue.class], @"Redefinition of constraint relation");
+            self.layoutRelation = relation;
+            self.secondViewAttribute = attribute;// 设置约束第二项
+            return self;
+        }
+    };
+}
+// 设置约束第二项
+- (void)setSecondViewAttribute:(id)secondViewAttribute {
+	//判断类型
+    if ([secondViewAttribute isKindOfClass:NSValue.class]) {
+        [self setLayoutConstantWithValue:secondViewAttribute];
+    } else if ([secondViewAttribute isKindOfClass:MAS_VIEW.class]) {
+        _secondViewAttribute = [[MASViewAttribute alloc] initWithView:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];
+    } else if ([secondViewAttribute isKindOfClass:MASViewAttribute.class]) {
+        _secondViewAttribute = secondViewAttribute;
+    } else {
+        NSAssert(NO, @"attempting to add unsupported attribute: %@", secondViewAttribute);
+    }
+}
+// MASConstraint
+- (void)setLayoutConstantWithValue:(NSValue *)value {
+    if ([value isKindOfClass:NSNumber.class]) {
+        self.offset = [(NSNumber *)value doubleValue];
+    } else if (strcmp(value.objCType, @encode(CGPoint)) == 0) {
+        CGPoint point;
+        [value getValue:&point];
+        self.centerOffset = point;
+    } else if (strcmp(value.objCType, @encode(CGSize)) == 0) {
+        CGSize size;
+        [value getValue:&size];
+        self.sizeOffset = size;
+    } else if (strcmp(value.objCType, @encode(MASEdgeInsets)) == 0) {
+        MASEdgeInsets insets;
+        [value getValue:&insets];
+        self.insets = insets;
+    } else {
+        NSAssert(NO, @"attempting to set layout constant with unsupported value: %@", value);
+    }
+}
+
+// MASViewConstraint
+- (void)setOffset:(CGFloat)offset {
+    self.layoutConstant = offset;       // 设置约束常量
+}
+- (void)setSizeOffset:(CGSize)sizeOffset {
+    NSLayoutAttribute layoutAttribute = self.firstViewAttribute.layoutAttribute;
+    switch (layoutAttribute) {
+        case NSLayoutAttributeWidth:
+            self.layoutConstant = sizeOffset.width;
+            break;
+        case NSLayoutAttributeHeight:
+            self.layoutConstant = sizeOffset.height;
+            break;
+        default:
+            break;
+    }
+}
+- (void)setCenterOffset:(CGPoint)centerOffset {
+    NSLayoutAttribute layoutAttribute = self.firstViewAttribute.layoutAttribute;
+    switch (layoutAttribute) {
+        case NSLayoutAttributeCenterX:
+            self.layoutConstant = centerOffset.x;
+            break;
+        case NSLayoutAttributeCenterY:
+            self.layoutConstant = centerOffset.y;
+            break;
+        default:
+            break;
+    }
+}
+- (void)setInsets:(MASEdgeInsets)insets {
+    NSLayoutAttribute layoutAttribute = self.firstViewAttribute.layoutAttribute;
+    switch (layoutAttribute) {
+        case NSLayoutAttributeLeft:
+        case NSLayoutAttributeLeading:
+            self.layoutConstant = insets.left;
+            break;
+        case NSLayoutAttributeTop:
+            self.layoutConstant = insets.top;
+            break;
+        case NSLayoutAttributeBottom:
+            self.layoutConstant = -insets.bottom;
+            break;
+        case NSLayoutAttributeRight:
+        case NSLayoutAttributeTrailing:
+            self.layoutConstant = -insets.right;
+            break;
+        default:
+            break;
+    }
+}
+```
+另外，后面的 `offset` 方法做了一步额外的操作：
+```c
+// MASConstraint
+- (MASConstraint * (^)(CGFloat))offset {
+    return ^id(CGFloat offset){
+        self.offset = offset;
+        return self;
+    };
+}
+- (void)setOffset:(CGFloat)offset {
+    self.layoutConstant = offset;
+}
+
+```
 
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
