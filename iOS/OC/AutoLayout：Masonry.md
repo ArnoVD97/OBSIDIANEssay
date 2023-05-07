@@ -134,3 +134,26 @@ AutoLayout使用的布局算法其实是 Cassowary，在WWDC2018，官方对其�
 那么真正的原始是什么呢？因为iOS12之前，当有约束变化时都会重新创建一个计算引擎 NSISEngier 将约束关系重新加起来，重新计算。涉及到约束关系变多时，新的计算引擎需要重新计算，最终导致计算量指数级增加。
 
 iOS12的AutoLayout更多的利用了Cassowary算法的界面更新策略，使其真正完成了高效的界面线性策略计算。使其尽量成线程增加，减少性能问题，最后允许我唠叨一句，讲真的，性能再强也是干不过Frame布局方式的，但是胜在简单方便。
+# Masonry源码解析
+```c
+- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
+
+    NSMutableArray *constraints = [NSMutableArray array];
+
+    for (MAS_VIEW *view in self) {
+
+        NSAssert([view isKindOfClass:[MAS_VIEW class]], @"All objects in the array must be views");
+
+        [constraints addObjectsFromArray:[view mas_makeConstraints:block]];
+
+    }
+
+    return constraints;
+
+}
+```
+该方法用于为一个包含多个视图的数组设置约束。具体地，这个方法会遍历数组中的每个视图，并对每个视图调用其自身的 `mas_makeConstraints` 方法，将传入的 `block` 块作为参数传递给它。
+
+`block` 块参数中的 `MASConstraintMaker` 对象包含了各种用于描述视图约束的方法。在调用 `mas_makeConstraints` 方法时，传入的 `block` 块中可以使用这些方法来描述视图之间的相对位置、尺寸等信息。`mas_makeConstraints` 方法会根据这些信息计算出合适的约束，并将其添加到相应的视图上。
+
+在该方法中，为了遍历数组中的每个视图并添加约束，我们使用了 `for-in` 循环。对于每个视图，我们首先使用 `NSAssert` 函数来断言其是否属于 `MAS_VIEW` 类型，如果不是则会抛出异常，以保证该数组只包含视图对象。接着，我们将视图的 `mas_makeConstraints` 方法返回的约束添加到 `constraints` 数组中。最后，该方法返回 `constraints` 数组，其中包含了为数组中的每个视图设置的约束。
