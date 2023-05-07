@@ -107,3 +107,30 @@
    make.top.equalTo(superView);
 }];
 ```
+这时候就会出现问题,label1 和 label2 必然有一个不能满足 intrinsicContentSize 约束条件,必然有一个需要拉伸才能完成约束布局任务,我们称这种问题叫做 Intrinsic冲突.
+
+解决 Intrinsic冲突 一共有两种方案,一种是直接指定冲突的label 1 和 label 2的宽高约束信息.第二种就是利用 content Hugging／content Compression Resistance.原始方法如下所示.
+```c
+- (void)setContentHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis API_AVAILABLE(ios(6.0));
+- (void)setContentCompressionResistancePriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis API_AVAILABLE(ios(6.0));
+
+```
+Content Hugging 约束（不想变大约束）表示：如果组件的此属性优先级比另一个组件此属性优先级高的话，那么这个组件就保持不变，另一个可以在需要拉伸的时候拉伸。属性分横向和纵向2个方向。
+
+Content Compression Resistance 约束（不想变小约束）表示：如果组件的此属性优先级比另一个组件此属性优先级高的话，那么这个组件就保持不变，另一个可以在需要压缩的时候压缩。属性分横向和纵向2个方向。 意思很明显。上面UIlabel这个例子中，很显然，如果某个UILabel使用Intrinsic Content Size的时候，另一个需要拉伸。 所以我们需要调整两个UILabel的 Content Hugging约束的优先级就可以啦。
+所以我们可以通过设置这两个方法来解决 **Intrinsic冲突** 问题,假设 我们想让 label 2 拉伸,label1尽量不拉伸,我们就可以设置如下代码.具体代码如下所示.
+```c
+[label1  setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+[label2  setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+
+```
+# Masonry:iOS12
+我们都知道，其实Masonry是封装系统的NSLayoutConstraints,简化了代码，但是在iOS12之前NSLayoutConstraints存在着致命的问题，那就是性能问题，其实这个在iOS12之后也会存在只是小了很多。那么在iOS12之前到底是什么原因导致这些问题呢？接下来我们逐一分析各种情况。
+
+AutoLayout使用的布局算法其实是 Cassowary，在WWDC2018，官方对其性能问题提出了说明，如下图所示，我们可以清楚的看到iOS12前的AutoLayout布局性能是成指数性增长的。
+![[Pasted image 20230507163808.png]]
+但是不是所有的布局都有这样的问题呢？答案当然是否定的，如下图所示。所以说AutoLayout只是在某些情况存在着问题。
+![[Pasted image 20230507163843.png]]
+那么真正的原始是什么呢？因为iOS12之前，当有约束变化时都会重新创建一个计算引擎 NSISEngier 将约束关系重新加起来，重新计算。涉及到约束关系变多时，新的计算引擎需要重新计算，最终导致计算量指数级增加。
+
+iOS12的AutoLayout更多的利用了Cassowary算法的界面更新策略，使其真正完成了高效的界面线性策略计算。使其尽量成线程增加，减少性能问题，最后允许我唠叨一句，讲真的，性能再强也是干不过Frame布局方式的，但是胜在简单方便。
