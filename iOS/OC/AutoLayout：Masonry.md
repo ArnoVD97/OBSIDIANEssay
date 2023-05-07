@@ -146,10 +146,21 @@ Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 
 
     }];
 ```
+调用的方法是
+```c
+- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block {
 
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+
+    MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
+
+    block(constraintMaker);
+
+    return [constraintMaker install];
+
+}
 ```
 
-```
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
 
