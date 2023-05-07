@@ -201,6 +201,29 @@ Masonry 主要方法由上述例子就可一窥全貌。Masonry主要通过对 
 
 最后，该方法返回初始化后的 `MASConstraintMaker` 对象。这个对象包含了各种用于描述视图约束的方法，我们可以在之后的代码中使用这些方法来描述视图之间的约束关系。
 
+
+在 `mas_makeConstraints` 方法中传递的块参数是一个 block，这个 block 的参数类型是 `MASConstraintMaker` 对象，即一个用于描述视图约束的对象。在 block 中，我们可以使用 `MASConstraintMaker` 对象提供的各种方法描述视图之间的约束关系。
+
+具体来说，当我们调用 `mas_makeConstraints` 方法时，Masonry 会为我们创建一个 `MASConstraintMaker` 对象，并将这个对象作为 block 的参数传递给我们。我们可以在 block 中使用这个 `MASConstraintMaker` 对象的各种方法描述视图之间的约束关系，例如：
+
+
+```c
+[view1 mas_makeConstraints:^(MASConstraintMaker *make) {     
+make.left.top.equalTo(superview).offset(10);     
+make.right.bottom.equalTo(superview).offset(-10); 
+}];
+```
+
+
+在这个示例中，我们使用了 `make.left.top.equalTo(superview).offset(10)` 和 `make.right.bottom.equalTo(superview).offset(-10)` 这两个方法来描述视图之间的约束关系。这些方法的作用是将 `view1` 的左侧和顶部与 `superview` 的左侧和顶部对齐，并向右和向下偏移 10 个单位，同时将 `view1` 的右侧和底部与 `superview` 的右侧和底部对齐，并向左和向上偏移 10 个单位。
+
+在 block 中，我们可以使用 `MASConstraintMaker` 对象的各种方法来描述视图之间的约束关系，例如设置视图的位置、大小、间距等。当 block 执行完毕后，Masonry 会根据我们在 block 中描述的约束关系来自动计算视图的位置和大小，并将这些约束关系应用到相应的视图上，从而实现自动布局。
+
+
+
+## 下面是使用`make.width`点语法后的全部内部调用过程：
+
+
 ```c
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block {
 
