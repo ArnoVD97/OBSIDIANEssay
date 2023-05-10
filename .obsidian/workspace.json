@@ -4,33 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "6527ed1209ef3e52",
+        "id": "1fc7e1204d9b5a02",
         "type": "tabs",
         "children": [
           {
-            "id": "3e526b87bf6879fa",
+            "id": "3ac81f31a71e76ba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2023-05-07.md",
+                "file": "C++/考试.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "d2e0320830af92ee",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.2.8"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -84,8 +73,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -106,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2023-05-07.md",
+                "file": "C++/考试.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2023-05-07.md",
+                "file": "C++/考试.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2023-05-07.md"
+                "file": "C++/考试.md"
               }
             }
           }
@@ -167,8 +155,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d2e0320830af92ee",
+  "active": "3ac81f31a71e76ba",
   "lastOpenFiles": [
+    "2023-05-07.md",
     "Pasted image 20230509201932.png",
     "C++/考试.md",
     "未命名.canvas",
@@ -177,7 +166,6 @@
     "Pasted image 20230507163808.png",
     "iOS/OC/实用内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
-    "2023-05-07.md",
     "C++/C++多态.md",
     "iOS/OC/alloc init和new方法的区别.md",
     "Mac上使用VSCode开发Unity.md",
@@ -209,7 +197,6 @@
     "iOS/OC/避免导致您正在使用的对象的取消分配.md",
     "iOS/OC",
     "C++",
-    "iOS",
-    "Pasted image 20230410213911.png"
+    "iOS"
   ]
 }
