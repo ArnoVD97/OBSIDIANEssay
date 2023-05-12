@@ -4,21 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "00cae27e2cb73f86",
+        "id": "e11f2f70adaf8190",
         "type": "tabs",
         "children": [
           {
-            "id": "34129e4653f42820",
+            "id": "ae1a6470d307d33b",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "未命名 2.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
+                "file": "iOS/OC/ARC.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -97,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "未命名 2.canvas",
+                "file": "iOS/OC/ARC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "未命名 2.canvas",
+                "file": "iOS/OC/ARC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未命名 2.canvas"
+                "file": "iOS/OC/ARC.md"
               }
             }
           }
@@ -158,12 +155,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "34129e4653f42820",
+  "active": "ae1a6470d307d33b",
   "lastOpenFiles": [
-    "未命名 1.canvas",
-    "未命名 2.canvas",
-    "iOS/OC/ARC.md",
     "iOS/OC/实用内存管理.md",
+    "未命名 2.canvas",
+    "未命名 1.canvas",
+    "iOS/OC/ARC.md",
     "iOS/OC/AutoLayout：Masonry.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/KVO.md",
