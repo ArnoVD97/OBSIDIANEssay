@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1fc7e1204d9b5a02",
+        "id": "00cae27e2cb73f86",
         "type": "tabs",
         "children": [
           {
-            "id": "3ac81f31a71e76ba",
+            "id": "34129e4653f42820",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++/考试.md",
+                "file": "iOS/OC/ARC.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "C++/考试.md",
+                "file": "iOS/OC/ARC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "C++/考试.md",
+                "file": "iOS/OC/ARC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "C++/考试.md"
+                "file": "iOS/OC/ARC.md"
               }
             }
           }
@@ -155,16 +154,19 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3ac81f31a71e76ba",
+  "active": "34129e4653f42820",
   "lastOpenFiles": [
+    "iOS/OC/实用内存管理.md",
+    "iOS/OC/AutoLayout：Masonry.md",
+    "iOS/OC/ARC.md",
+    "iOS/OC/内存管理.md",
+    "iOS/OC/KVO.md",
+    "C++/考试.md",
     "2023-05-07.md",
     "Pasted image 20230509201932.png",
-    "C++/考试.md",
     "未命名.canvas",
-    "iOS/OC/AutoLayout：Masonry.md",
     "Pasted image 20230507163843.png",
     "Pasted image 20230507163808.png",
-    "iOS/OC/实用内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
     "C++/C++多态.md",
     "iOS/OC/alloc init和new方法的区别.md",
@@ -175,9 +177,6 @@
     "C++/命名空间.md",
     "C++/C++关键字（续）.md",
     "C++/C++基本.md",
-    "iOS/OC/ARC.md",
-    "iOS/OC/内存管理.md",
-    "iOS/OC/KVO.md",
     "iOS/OC/Pasted image 20230410214015.png",
     "iOS/OC/Pasted image 20230410214028.png",
     "操作系统/操作系统的发展.md",
