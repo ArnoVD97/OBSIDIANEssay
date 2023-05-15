@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/ARC.md",
+                "file": "iOS/OC/AutoLayout：Masonry.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/ARC.md",
+                "file": "iOS/OC/AutoLayout：Masonry.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/ARC.md",
+                "file": "iOS/OC/AutoLayout：Masonry.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/ARC.md"
+                "file": "iOS/OC/AutoLayout：Masonry.md"
               }
             }
           }
@@ -154,26 +155,28 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "18899b2f02fc5828",
+  "active": "ae1a6470d307d33b",
   "lastOpenFiles": [
+    "iOS/OC/未命名.md",
+    "iOS/OC/面向对象类程序设计.md",
+    "iOS/OC/内存管理.md",
+    "iOS/OC/实用内存管理.md",
+    "iOS/OC/alloc init和new方法的区别.md",
+    "iOS/OC/AutoLayout：Masonry.md",
+    "iOS/OC/iOS使用特殊字体.md",
+    "iOS/OC/KVO.md",
+    "iOS/OC/ARC.md",
     "iOS/Swift",
     "未命名",
-    "iOS/OC/实用内存管理.md",
     "未命名 2.canvas",
     "未命名 1.canvas",
-    "iOS/OC/ARC.md",
-    "iOS/OC/AutoLayout：Masonry.md",
-    "iOS/OC/内存管理.md",
-    "iOS/OC/KVO.md",
     "C++/考试.md",
     "2023-05-07.md",
     "Pasted image 20230509201932.png",
     "未命名.canvas",
     "Pasted image 20230507163843.png",
     "Pasted image 20230507163808.png",
-    "iOS/OC/面向对象类程序设计.md",
     "C++/C++多态.md",
-    "iOS/OC/alloc init和new方法的区别.md",
     "Mac上使用VSCode开发Unity.md",
     "C++/C++重载运算符和重载函数.md",
     "C++/C++继承.md",
@@ -188,7 +191,6 @@
     "未命名.md",
     "操作系统",
     "C++/面向对象的程序设计.md",
-    "iOS/OC/iOS使用特殊字体.md",
     "微机原理/微型计算机基础概论.md",
     "iOS/OC/RunTime机制.md",
     "Pasted image 20230420202844.png",
