@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/AutoLayout：Masonry.md",
+                "file": "iOS/OC/MVVM设计模式.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,8 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/AutoLayout：Masonry.md",
+                "file": "iOS/OC/MVVM设计模式.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/AutoLayout：Masonry.md",
+                "file": "iOS/OC/MVVM设计模式.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/AutoLayout：Masonry.md"
+                "file": "iOS/OC/MVVM设计模式.md"
               }
             }
           }
@@ -157,15 +156,19 @@
   },
   "active": "ae1a6470d307d33b",
   "lastOpenFiles": [
-    "iOS/OC/未命名.md",
+    "Pasted image 20230522204205.png",
+    "iOS/OC/实用内存管理.md",
+    "iOS/OC/MVVM设计模式.md",
+    "iOS/OC/RunTime机制.md",
+    "iOS/OC/Pasted image 20230410214015.png",
+    "iOS/OC/Pasted image 20230410214028.png",
+    "iOS/OC/alloc init和new方法的区别.md",
+    "iOS/OC/ARC.md",
+    "iOS/OC/AutoLayout：Masonry.md",
     "iOS/OC/面向对象类程序设计.md",
     "iOS/OC/内存管理.md",
-    "iOS/OC/实用内存管理.md",
-    "iOS/OC/alloc init和new方法的区别.md",
-    "iOS/OC/AutoLayout：Masonry.md",
     "iOS/OC/iOS使用特殊字体.md",
     "iOS/OC/KVO.md",
-    "iOS/OC/ARC.md",
     "iOS/Swift",
     "未命名",
     "未命名 2.canvas",
@@ -184,22 +187,18 @@
     "C++/命名空间.md",
     "C++/C++关键字（续）.md",
     "C++/C++基本.md",
-    "iOS/OC/Pasted image 20230410214015.png",
-    "iOS/OC/Pasted image 20230410214028.png",
     "操作系统/操作系统的发展.md",
     "操作系统/操作系统的目标和作用.md",
     "未命名.md",
     "操作系统",
     "C++/面向对象的程序设计.md",
     "微机原理/微型计算机基础概论.md",
-    "iOS/OC/RunTime机制.md",
     "Pasted image 20230420202844.png",
     "Pasted image 20230422210512.png",
     "Pasted image 20230420202639.png",
     "Pasted image 20230418171043.png",
     "微机原理",
     "避免导致您正在使用的对象的取消分配.md",
-    "iOS/OC/避免导致您正在使用的对象的取消分配.md",
     "iOS/OC",
     "C++",
     "iOS"
