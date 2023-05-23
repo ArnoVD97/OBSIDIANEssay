@@ -4,11 +4,20 @@ Key-value observing is a mechanism that enables an object to be notified directl
 
 **Note:** Although the classes of the UIKit framework generally do not support KVO, you can still implement it in the custom objects of your application, including custom views.
 
+键值观察是一种机制，当另一个对象的属性发生变化时，可以直接通知另一个对象。键值观察(KVO)是影响应用程序内聚性的一个重要因素。它是一种应用程序中对象之间的通信模式，设计遵循MVC设计模式。例如，您可以使用它将模型对象的状态与视图和控制器层中的对象同步。通常，控制器对象观察模型对象，而视图观察控制器对象或模型对象。
+
+**注意:**尽管UIKit框架的类通常不支持KVO，但您仍然可以在应用程序的自定义对象中实现它，包括自定义视图。
+
 ![Art/kvo_2x.png](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Art/kvo_2x.png)
 
 With KVO, one object can observe any properties of another object, including simple attributes, to-one relationships, and to-many relationships. An object can find out what the current and prior values of a property are. Observers of to-many relationships are informed not only about the type of change made, but are told which objects are involved in the change. 
 
-As a notification mechanism, key-value observing is similar to the mechanism provided by the `[NSNotification](https://developer.apple.com/documentation/foundation/nsnotification)`and `[NSNotificationCenter](https://developer.apple.com/library/archive/documentation/LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSNotificationCenter/Description.html#//apple_ref/occ/cl/NSNotificationCenter)` classes, but there are significant differences, too. Instead of a central object that broadcasts notifications to all objects that have registered as observers, KVO notifications go directly to observing objects when changes in property values occur.
+As a notification mechanism, key-value observing is similar to the mechanism provided by the [NSNotification](https://developer.apple.com/documentation/foundation/nsnotification) and  [NSNotificationCenter](https://developer.apple.com/library/archive/documentation/LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSNotificationCenter/Description.html#//apple_ref/occ/cl/NSNotificationCenter)classes, but there are significant differences, too. Instead of a central object that broadcasts notifications to all objects that have registered as observers, KVO notifications go directly to observing objects when changes in property values occur.
+
+使用KVO，一个对象可以观察另一个对象的任何属性，包括简单属性、一对关系和多关系。对象可以找出属性的当前值和之前值。对多关系的观察者不仅被告知所做更改的类型，而且还被告知哪些对象参与了更改。
+
+作为一种通知机制，键值观察类似于[NSNotification]和[NSNotificationCenter](https://developer.apple.com/library/archive/documentation/LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSNotificationCenter/Description.html#//apple_ref/occ/cl/NSNotificationCenter)类提供的机制，但也有显著的差异。当属性值发生变化时，KVO通知直接发送给观察对象，而不是一个向所有注册为观察者的对象广播通知的中心对象。
+
 
 ## Implementing KVO
 

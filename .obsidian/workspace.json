@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/MVVM设计模式.md",
+                "file": "iOS/OC/KVO.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/MVVM设计模式.md",
+                "file": "iOS/OC/KVO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/MVVM设计模式.md",
+                "file": "iOS/OC/KVO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/MVVM设计模式.md"
+                "file": "iOS/OC/KVO.md"
               }
             }
           }
@@ -156,14 +156,15 @@
   },
   "active": "ae1a6470d307d33b",
   "lastOpenFiles": [
+    "iOS/OC/ARC.md",
+    "iOS/OC/Block.md",
+    "iOS/OC/MVVM设计模式.md",
     "Pasted image 20230522204205.png",
     "iOS/OC/实用内存管理.md",
-    "iOS/OC/MVVM设计模式.md",
     "iOS/OC/RunTime机制.md",
     "iOS/OC/Pasted image 20230410214015.png",
     "iOS/OC/Pasted image 20230410214028.png",
     "iOS/OC/alloc init和new方法的区别.md",
-    "iOS/OC/ARC.md",
     "iOS/OC/AutoLayout：Masonry.md",
     "iOS/OC/面向对象类程序设计.md",
     "iOS/OC/内存管理.md",
@@ -196,7 +197,6 @@
     "Pasted image 20230420202844.png",
     "Pasted image 20230422210512.png",
     "Pasted image 20230420202639.png",
-    "Pasted image 20230418171043.png",
     "微机原理",
     "避免导致您正在使用的对象的取消分配.md",
     "iOS/OC",
