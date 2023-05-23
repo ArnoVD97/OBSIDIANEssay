@@ -45,9 +45,6 @@ The root class, [NSObject](https://developer.apple.com/library/archive/document
 
 Cocoa bindings is an OS X technology that allows you to keep values in the model and view layers of your application synchronized without having to write a lot of “glue code.” Through an Interface Builder inspector, you can establish a mediated connection between a view’s property and a piece of data, “binding” them such that a change in one is reflected in the other. KVO, along with key-value coding and key-value binding, are technologies that are instrumental to Cocoa bindings.
 
-
-
-
 Cocoa绑定是一种OS X技术，它允许你同步应用程序的模型层和视图层中的值，而无需编写大量的“粘合代码”。通过Interface Builder检查器，您可以在视图的属性和数据之间建立一个中介连接，“绑定”它们，以便其中一个的更改反映到另一个中。KVO、键值编码和键值绑定是Cocoa绑定的关键技术。
 
 ### Prerequisite Articles
