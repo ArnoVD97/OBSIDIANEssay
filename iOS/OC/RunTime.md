@@ -14,4 +14,6 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 在Class类的method list方法列表中找到对应的selector
 如果在Class中找到这个selector，就继续在它的superClass类中寻找
 一旦在找到对应的selector方法，直接执行receiver对应的selector方法实现的[[IMP方法实现]]
-若找不到对应的selector，消息被转发或者临时向receiver添加这个selector对应的实现方法，
+若找不到对应的selector，若没有实现消息被转发或者临时向receiver添加这个selector对应的实现方法，否则就会崩溃
+在上述过程中涉及了好几个新的概念：`objc_msgSend`、`isa 指针`、`Class（类）`、`IMP（方法实现）` 等，下面我们来具体讲解一下各个概念的含义。
+# # Runtime 中的概念解析
