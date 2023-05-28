@@ -17,3 +17,33 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 若找不到对应的selector，若没有实现消息被转发或者临时向receiver添加这个selector对应的实现方法，否则就会崩溃
 在上述过程中涉及了好几个新的概念：`objc_msgSend`、`isa 指针`、`Class（类）`、`IMP（方法实现）` 等，下面我们来具体讲解一下各个概念的含义。
 # Runtime 中的概念解析
+## objc_msgSend
+
+所有 Objective-C 方法调用在编译时都会转化为对 C 函数 `objc_msgSend` 的调用。`objc_msgSend(receiver，selector);` 是 `[receiver selector];` 对应的 C 函数。
+## Class（类）
+
+在 `objc/runtime.h` 中，`Class（类）` 被定义为指向 `objc_class 结构体` 的指针，`objc_class 结构体` 的数据结构如下：
+```c#
+1. `/// An opaque type that represents an Objective-C class.`
+2. `typedef struct objc_class *Class;`
+
+4. `struct objc_class {`
+5. `Class _Nonnull isa; // objc_class 结构体的实例指针`
+
+7. `#if !__OBJC2__`
+8. `Class _Nullable super_class; // 指向父类的指针`
+9. `const char * _Nonnull name; // 类的名字`
+10. `long version; // 类的版本信息，默认为 0`
+11. `long info; // 类的信息，供运行期使用的一些位标识`
+12. `long instance_size; // 该类的实例变量大小;`
+13. `struct objc_ivar_list * _Nullable ivars; // 该类的实例变量列表`
+14. `struct objc_method_list * _Nullable * _Nullable methodLists; // 方法定义的列表`
+15. `struct objc_cache * _Nonnull cache; // 方法缓存`
+16. `struct objc_protocol_list * _Nullable protocols; // 遵守的协议列表`
+17. `#endif`
+
+19. `};`
+```
+从中可以看出，`objc_class 结构体` 定义了很多变量：自身的所有实例变量（ivars）、所有方法定义（methodLists）、遵守的协议列表（protocols）等。`objc_class 结构体` 存放的数据称为 **元数据（metadata）**。
+
+`objc_class 结构体` 的第一个成员变量是 `isa 指针`，`isa 指针` 保存的是所属类的结构体的实例的指针，这里保存的就是 `objc_class 结构体`的实例指针，而实例换个名字就是 **对象**。换句话说，`Class（类）` 的本质其实就是一个对象，我们称之为 **类对象**。
