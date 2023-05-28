@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "65eb7bb94fefc9b2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.3.4"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -154,7 +165,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ae1a6470d307d33b",
+  "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
     "iOS/OC/实用内存管理.md",
     "iOS/OC/未命名.md",
