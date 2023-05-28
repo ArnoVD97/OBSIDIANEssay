@@ -47,3 +47,18 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 从中可以看出，`objc_class 结构体` 定义了很多变量：自身的所有实例变量（ivars）、所有方法定义（methodLists）、遵守的协议列表（protocols）等。`objc_class 结构体` 存放的数据称为 **元数据（metadata）**。
 
 `objc_class 结构体` 的第一个成员变量是 `isa 指针`，`isa 指针` 保存的是所属类的结构体的实例的指针，这里保存的就是 `objc_class 结构体`的实例指针，而实例换个名字就是 **对象**。换句话说，`Class（类）` 的本质其实就是一个对象，我们称之为 **类对象**。
+## Object（对象）
+接下来，我们再来看看 `objc/objc.h` 中关于 `Object（对象）` 的定义。  
+`Object（对象）`被定义为 `objc_object 结构体`，其数据结构如下：
+```c#
+1. `/// Represents an instance of a class.`
+2. `struct objc_object {`
+3. `Class _Nonnull isa; // objc_object 结构体的实例指针`
+4. `};`
+
+6. `/// A pointer to an instance of a class.`
+7. `typedef struct objc_object *id;`
+```
+这里的 `id` 被定义为一个指向 `objc_object 结构体` 的指针。从中可以看出 `objc_object 结构体` 只包含一个 `Class` 类型的 `isa 指针`。
+
+换句话说，一个 `Object（对象）`唯一保存的就是它所属 `Class（类）` 的地址。当我们对一个对象，进行方法调用时，比如 `[receiver selector];`，它会通过 `objc_object 结构体`的 `isa 指针` 去找对应的 `object_class 结构体`，然后在 `object_class 结构体` 的 `methodLists（方法列表）` 中找到我们调用的方法，然后执行。
