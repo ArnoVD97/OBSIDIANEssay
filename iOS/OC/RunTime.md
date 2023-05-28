@@ -9,4 +9,8 @@ RUNTIME实际是一个库，这个库使程序在运行的时候动态创建对�
 编译阶段[receiver selector] 方法被编译器转化为
 objc_msgSend(receiver, selector)不带参数
 objc_msgSend(receiver, selector, org1, org2, ...)带参数
-运行时：消息
+运行时：消息接受者receiver寻找对应的selector。
+通过对应的[[isa指针]]找到receiver的Class类
+在Class类的method list方法列表中找到对应的selector
+如果在Class中找到这个selector，就继续在它的superClass类中寻找
+一旦在找到对应的selector方法
