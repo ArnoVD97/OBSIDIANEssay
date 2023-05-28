@@ -13,4 +13,5 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 通过对应的[[isa指针]]找到receiver的Class类
 在Class类的method list方法列表中找到对应的selector
 如果在Class中找到这个selector，就继续在它的superClass类中寻找
-一旦在找到对应的selector方法
+一旦在找到对应的selector方法，直接执行receiver对应的selector方法实现的[[IMP方法实现]]
+若找不到对应的selector，消息被转发或者临时向receiver添加这个selector对应的实现方法，
