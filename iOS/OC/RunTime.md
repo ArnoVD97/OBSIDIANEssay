@@ -6,3 +6,7 @@ RUNTIME实际是一个库，这个库使程序在运行的时候动态创建对�
 对象方法调用都是类似 `[receiver selector];` 的形式，其本质就是让对象在运行时发送消息的过程。
 
 我们来看看方法调用 `[receiver selector];` 在「编译阶段」和「运行阶段」分别做了什么？
+编译阶段[receiver selector] 方法被编译器转化为
+objc_msgSend(receiver, selector)不带参数
+objc_msgSend(receiver, selector, org1, org2, ...)带参数
+运行时：消息
