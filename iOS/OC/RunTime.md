@@ -96,3 +96,18 @@ NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
 1. `类对象` 的  `父类指针` 指向了 `父类的类对象`，`父类的类对象` 又指向了 `根类的类对象`，`根类的类对象` 最终指向了 nil。
 2. `元类` 的 `父类指针` 指向了 `父类对象的元类`。`父类对象的元类` 的 `父类指针`指向了 `根类对象的元类`，也就是 `根元类`。而 `根元类` 的 `父亲指针` 指向了 `根类对象`，最终指向了 nil。
 ## 方法
+`object_class 结构体` 的 `methodLists（方法列表）`中存放的元素就是 `方法（Method）`。
+
+先来看下 `objc/runtime.h` 中，表示 `方法（Method）` 的 `objc_method 结构体` 的数据结构：
+```c
+1. `/// An opaque type that represents a method in a class definition.`
+2. `/// 代表类定义中一个方法的不透明类型`
+3. `typedef struct objc_method *Method;`
+
+5. `struct objc_method {`
+6.     `SEL _Nonnull method_name;                    // 方法名`
+7.     `char * _Nullable method_types;               // 方法类型`
+8.     `IMP _Nonnull method_imp;                     // 方法实现`
+9. `};`
+```
+
