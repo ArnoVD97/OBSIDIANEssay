@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -156,6 +157,7 @@
   },
   "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
+    "Pasted image 20230529163548.png",
     "iOS/OC/RunTime.md",
     "iOS/OC/isa指针.md",
     "iOS/OC/实用内存管理.md",
