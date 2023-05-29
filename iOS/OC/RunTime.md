@@ -6,15 +6,15 @@ RUNTIME实际是一个库，这个库使程序在运行的时候动态创建对�
 对象方法调用都是类似 `[receiver selector];` 的形式，其本质就是让对象在运行时发送消息的过程。
 
 我们来看看方法调用 `[receiver selector];` 在「编译阶段」和「运行阶段」分别做了什么？
-编译阶段[receiver selector] 方法被编译器转化为
+1. 编译阶段[receiver selector] 方法被编译器转化为
 objc_msgSend(receiver, selector)不带参数
 objc_msgSend(receiver, selector, org1, org2, ...)带参数
-运行时：消息接受者receiver寻找对应的selector。
+2. 运行时：消息接受者receiver寻找对应的selector。
 通过对应的[[isa指针]]找到receiver的Class类
 在Class类的method list方法列表中找到对应的selector
-如果在Class中找到这个selector，就继续在它的superClass类中寻找
-一旦在找到对应的selector方法，直接执行receiver对应的selector方法实现的[[IMP方法实现]]
-若找不到对应的selector，若没有实现消息被转发或者临时向receiver添加这个selector对应的实现方法，否则就会崩溃
+如果在Class中没找到这个selector，就继续在它的superClass类中寻找
+3. 一旦在找到对应的selector方法，直接执行receiver对应的selector方法实现的[[IMP方法实现]]
+4. 若找不到对应的selector，若没有实现消息被转发或者临时向receiver添加这个selector对应的实现方法，否则就会崩溃
 在上述过程中涉及了好几个新的概念：`objc_msgSend`、`isa 指针`、`Class（类）`、`IMP（方法实现）` 等，下面我们来具体讲解一下各个概念的含义。
 # Runtime 中的概念解析
 ## objc_msgSend
@@ -68,3 +68,18 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 那么什么是 `Meta Class（元类）`？
 `Meta Class（元类）` 就是一个类对象所属的 **类**。一个对象所属的类叫做 `类对象`，而一个类对象所属的类就叫做 **元类**。
 对象 -> 类对象->元类
+> Runtime 中把类对象所属类型就叫做 `Meta Class（元类）`，用于描述类对象本身所具有的特征，而在元类的 methodLists 中，保存了类的方法链表，即所谓的「类方法」。并且类对象中的 `isa 指针` 指向的就是元类。每个类对象有且仅有一个与之相关的元类。
+
+在 **2. 消息机制的基本原理** 中我们讲解了 **对象方法的调用过程**，我们是通过对象的 `isa 指针` 找到 对应的 `Class（类）`；然后在 `Class（类）` 的 `method list（方法列表）` 中找对应的 `selector` 。
+而 **类方法的调用过程** 和对象方法调用差不多，流程如下：
+
+1. 通过类对象 `isa 指针` 找到所属的 `Meta Class（元类）`；
+2. 在  `Meta Class（元类）` 的 `method list（方法列表）` 中找到对应的 `selector`;
+3. 执行对应的 `selector`。
+4. 下面看一个示例：
+
+```objec
+NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
+```
+
+上边的示例中，`stringWithFormat:` 被发送给了 `NSString 类`，`NSString 类` 通过 `isa 指针` 找到 `NSString 元类`，然后在该元类的方法列表中找到对应的 `stringWithFormat:` 方法，然后执行该方法。
