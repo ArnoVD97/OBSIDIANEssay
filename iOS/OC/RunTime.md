@@ -62,7 +62,7 @@ objc_msgSend(receiver, selector, org1, org2, ...)带参数
 这里的 `id` 被定义为一个指向 `objc_object 结构体` 的指针。从中可以看出 `objc_object 结构体` 只包含一个 `Class` 类型的 `isa 指针`。
 ```c
 UIlabel *arno = [[UILabel alloc] init];
-//我创建了一个UILabel对象，arno是一个对象内容是一个isa指针，指向同时创建的类对象，alloc为类对象开辟了一个空间，data存在arnoisa指向的类对象空间中
+//我创建了一个UILabel对象，arno是一个对象内容是一个isa指针，指向同时创建的类对象，alloc为类对象开辟了一个空间，data存在arnoisa指向的类对象空间中，类对象里面也有一个isa指针，指向其元类，元类存储了类对象的方法和静态变量等信息。每个类对象在运行时都有一个对应的元类。
 ```
 换句话说，一个 `Object（对象）`唯一保存的就是它所属 `Class（类）` 的地址。当我们对一个对象，进行方法调用时，比如 `[receiver selector];`，它会通过 `objc_object 结构体`的 `isa 指针` 去找对应的 `object_class 结构体`，然后在 `object_class 结构体` 的 `methodLists（方法列表）` 中找到我们调用的方法，然后执行。
 ## Meta Class
