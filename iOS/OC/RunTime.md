@@ -116,3 +116,38 @@ NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
 9. `};`
 ```
 
+可以看到，`objc_method 结构体` 中包含了 `方法名（method_name）`，`方法类型（method_types）` 和 `方法实现（method_imp）`。下面，我们来了解下这三个变量。
+1. `SEL method_name; // 方法名`
+```c
+1. `/// An opaque type that represents a method selector.`
+2. `typedef struct objc_selector *SEL;`
+```
+
+
+`SEL` 是一个指向 `objc_selector 结构体` 的指针，但是在 runtime 相关头文件中并没有找到明确的定义。不过，通过测试我们可以得出： `SEL` 只是一个保存方法名的字符串。
+```c
+1. `SEL sel = @selector(viewDidLoad);`
+2. `NSLog(@"%s", sel); // 输出：viewDidLoad`
+3. `SEL sel1 = @selector(test);`
+4. `NSLog(@"%s", sel1); // 输出：test`
+```
+2. `IMP method_imp; // 方法实现`
+```c
+1. `/// A pointer to the function of a method implementation.`
+2. `#if !OBJC_OLD_DISPATCH_PROTOTYPES`
+3. `typedef void (*IMP)(void /* id, SEL, ... */ );`
+4. `#else`
+5. `typedef id _Nullable (*IMP)(id _Nonnull, SEL _Nonnull, ...);`
+6. `#endif`
+```
+`IMP` 的实质是一个函数指针，所指向的就是方法的实现。`IMP`用来找到函数地址，然后执行函数。
+3. `char * method_types; // 方法类型`
+
+方法类型 `method_types` 是个字符串，用来存储方法的参数类型和返回值类型。
+> 到这里， `Method` 的结构就已经很清楚了，`Method` 将 `SEL（方法名）` 和 `IMP（函数指针）` 关联起来，当对一个对象发送消息时，会通过给出的 `SEL（方法名）` 去找到  `IMP（函数指针）` ，然后执行。
+
+在 **2. 消息机制的基本原理** 最后一步中我们提到：若找不到对应的 `selector`，消息被转发或者临时向 `recever` 添加这个 `selector` 对应的实现方法，否则就会发生崩溃。
+
+当一个方法找不到的时候，Runtime 提供了 **消息动态解析**、**消息接受者重定向**、**消息重定向** 等三步处理消息，具体流程如下图所示：
+![[Pasted image 20230531170631.png]]
+## 4.1 消息动态解析
