@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/isa指针.md",
+                "file": "iOS/OC/IMP方法实现.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/isa指针.md",
+                "file": "iOS/OC/IMP方法实现.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/isa指针.md",
+                "file": "iOS/OC/IMP方法实现.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/isa指针.md"
+                "file": "iOS/OC/IMP方法实现.md"
               }
             }
           },
@@ -163,20 +163,21 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "65eb7bb94fefc9b2",
+  "active": "18899b2f02fc5828",
   "lastOpenFiles": [
+    "iOS/OC/RunTime-One.md",
+    "iOS/OC/IMP方法实现.md",
+    "iOS/OC/isa指针.md",
     "Pasted image 20230531222002.png",
     "iOS/OC/RunTime-Two.md",
     "2023-05-07.md",
     "Pasted image 20230531213624.png",
-    "iOS/OC/RunTime-One.md",
     "iOS/OC/Type Encodings.md",
     "Pasted image 20230531170631.png",
     "iOS/OC/类族模式.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/面向对象类程序设计.md",
     "Pasted image 20230420202639.png",
-    "iOS/OC/isa指针.md",
     "Pasted image 20230529163548.png",
     "iOS/OC/实用内存管理.md",
     "Pasted image 20230529155240.png",
@@ -186,7 +187,6 @@
     "Pasted image 20230418171043.png",
     "Pasted image 20230422210512.png",
     "Pasted image 20230507163843.png",
-    "Pasted image 20230503221435.png",
     "Mac上使用VSCode开发Unity.md",
     "未命名 2.canvas",
     "2023-05-29.md",
