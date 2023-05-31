@@ -145,9 +145,64 @@ NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
 
 方法类型 `method_types` 是个字符串，用来存储方法的参数类型和返回值类型。
 > 到这里， `Method` 的结构就已经很清楚了，`Method` 将 `SEL（方法名）` 和 `IMP（函数指针）` 关联起来，当对一个对象发送消息时，会通过给出的 `SEL（方法名）` 去找到  `IMP（函数指针）` ，然后执行。
-# RunTime
+# RunTime消息转发
 在 **2. 消息机制的基本原理** 最后一步中我们提到：若找不到对应的 `selector`，必须消息被转发或者临时向 `recever` 添加这个 `selector` 对应的实现方法，否则就会发生崩溃。
 
 当一个方法找不到的时候，Runtime 提供了 **消息动态解析**、**消息接受者重定向**、**消息重定向** 等三步处理消息，具体流程如下图所示：
 ![[Pasted image 20230531170631.png]]
 ## 4.1 消息动态解析
+OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你有机会提供一个函数实现。我们重写这两个方法，添加其他函数实现，并返回YES，那么运行时系统就会重新启动一次消息发送的过程。
+主要用法：
+```objective-c
+1. `// 类方法未找到时调起，可以在此添加类方法实现`
+2. `+ (BOOL)resolveClassMethod:(SEL)sel;`
+3. `// 对象方法未找到时调起，可以在此对象方法实现`
+4. `+ (BOOL)resolveInstanceMethod:(SEL)sel;`
+
+6. `/**`
+7. `* class_addMethod 向具有给定名称和实现的类中添加新方法`
+8. `* @param cls 被添加方法的类`
+9. `* @param name selector 方法名`
+10. `* @param imp 实现方法的函数指针`
+11. `* @param types imp 指向函数的返回值与参数类型`
+12. `* @return 如果添加方法成功返回 YES，否则返回 NO`
+13. `*/`
+14. `BOOL class_addMethod(Class cls, SEL name, IMP imp,`
+15. `const char * _Nullable types);`
+```
+举个例子
+```c
+1. `#import "ViewController.h"`
+2. `#include "objc/runtime.h"`
+
+4. `@interface ViewController ()`
+
+6. `@end`
+
+8. `@implementation ViewController`
+
+10. `- (void)viewDidLoad {`
+11. `[super viewDidLoad];`
+
+13. `// 执行 fun 函数`
+14. `[self performSelector:@selector(fun)];`
+15. `}`
+
+17. `// 重写 resolveInstanceMethod: 添加对象方法实现`
+18. `+ (BOOL)resolveInstanceMethod:(SEL)sel {`
+19. `if (sel == @selector(fun)) { // 如果是执行 fun 函数，就动态解析，指定新的 IMP`
+20. `class_addMethod([self class], sel, (IMP)funMethod, "v@:");`
+21. `return YES;`
+22. `}`
+23. `return [super resolveInstanceMethod:sel];`
+24. `}`
+
+26. `void funMethod(id obj, SEL _cmd) {`
+27. `NSLog(@"funMethod"); //新的 fun 函数`
+28. `}`
+
+30. `@end`
+
+```
+> 打印结果：  
+2019-06-12 10:25:39.848260+0800 runtime[14884:7977579] funMethod
