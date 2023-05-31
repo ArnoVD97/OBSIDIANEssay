@@ -136,13 +136,21 @@
                 "file": "iOS/OC/Type Encodings.md"
               }
             }
+          },
+          {
+            "id": "1c35bb03f9fc7c6b",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -151,10 +159,11 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "18899b2f02fc5828",
+  "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
     "iOS/OC/RunTime.md",
     "iOS/OC/Type Encodings.md",
