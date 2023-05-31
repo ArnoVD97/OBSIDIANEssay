@@ -22,4 +22,18 @@ char *buf3 = @encode(Rectangle);
 | d    | double                                                     |
 | f    | float                                                      |
 | v    | void                                                       |
-| *     |                                                            |
+| *    | A character string (`char *`)                              |
+| @    | An object (whether statically typed or typed `id`)         |
+| #    | A class object (`Class`)                                   |
+| :    | A method selector (`SEL`)                                  |
+| [_array type_] |An array|
+|{_name=type..._}|A structure|
+|(_name_=_type..._)|A union|
+|`b`num|A bit field of _num_ bits|
+|`^`type|A pointer to _type_|
+|`?`|An unknown type (among other things, this code is used for function pointers)     |                                                            |
+
+重要信息：Objective-C不支持long double类型。@encode(long double)返回d，这与double的编码相同。
+数组的类型代码包含在方括号内；数组中的元素数量立即在打开的括号之后，在数组类型之前指定。例如，一个由12个指针组成的数组将被编码为：
+|eg
+| [12^f] |
