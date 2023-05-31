@@ -209,3 +209,7 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 
 从上边的例子中，我们可以看出，虽然我们没有实现 `fun` 方法，但是通过重写 `resolveInstanceMethod:` ，利用 `class_addMethod` 方法添加对象方法实现 `funMethod` 方法，并执行。从打印结果来看，成功调起了`funMethod` 方法。
 我们注意到 class_addMethod 方法中的特殊参数 `v@:`，具体可参考官方文档中关于 [[Type Encodings]] 的说明：[传送门](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100)
+## 4.2 消息接受者重定向
+如果上一步中 `+resolveInstanceMethod:` 或者 `+resolveClassMethod:` 没有添加其他函数实现，运行时就会进行下一步：消息接受者重定向。
+
+如果当前对象实现了 `-forwardingTargetForSelector:`，Runtime 就会调用这个方法，允许我们将消息的接受者转发给其他对象。

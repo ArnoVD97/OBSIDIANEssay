@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/OC/Type Encodings.md",
+                "file": "iOS/OC/RunTime.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/Type Encodings.md",
+                "file": "iOS/OC/RunTime.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/Type Encodings.md",
+                "file": "iOS/OC/RunTime.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/Type Encodings.md"
+                "file": "iOS/OC/RunTime.md"
               }
             }
           },
@@ -165,8 +166,8 @@
   },
   "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
-    "iOS/OC/RunTime.md",
     "iOS/OC/Type Encodings.md",
+    "iOS/OC/RunTime.md",
     "Pasted image 20230531170631.png",
     "iOS/OC/类族模式.md",
     "iOS/OC/内存管理.md",
