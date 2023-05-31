@@ -289,7 +289,7 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 5. `- (void)forwardInvocation:(NSInvocation *)anInvocation；`
 ```
 举个例子：
-```c
+```objective-c
 1. `#import "ViewController.h"`
 2. `#include "objc/runtime.h"`
 
@@ -363,3 +363,22 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 以上就是 Runtime 消息转发的整个流程。
 
 结合之前讲的 **2. 消息机制的基本原理**，就构成了整个消息发送以及转发的流程。下面我们来总结一下整个流程。
+# 5. 消息发送以及转发机制总结
+
+调用 `[receiver selector];` 后，进行的流程：
+
+1. 编译阶段：`[receiver selector];` 方法被编译器转换为:
+    1. `objc_msgSend(receiver，selector)` （不带参数）
+    2. `objc_msgSend(recevier，selector，org1，org2，…)`（带参数）
+2. 运行时阶段：消息接受者 `recever` 寻找对应的 `selector`。
+    1. 通过 `recevier` 的 `isa 指针` 找到 `recevier` 的 `class（类）`；
+    2. 在 `class（类）` 的 `method list（方法列表）` 中找对应的 `selector`；
+    3. 如果在 `class（类）` 中没有找到这个 `selector`，就继续在它的 `superclass（父类）`中寻找；
+    4. 一旦找到对应的 `selector`，直接执行 `recever` 对应 `selector` 方法实现的 `IMP（方法实现）`。
+    5. 若找不到对应的 `selector`，Runtime 系统进入消息转发机制。
+3. 运行时消息转发阶段：
+    1. 动态解析：通过重写 `+resolveInstanceMethod:` 或者 `+resolveClassMethod:`方法，利用 `class_addMethod` 方法添加其他函数实现；
+    2. 消息接受者重定向：如果上一步添加其他函数实现，可在当前对象中利用 `-forwardingTargetForSelector:` 方法将消息的接受者转发给其他对象；
+    3. 消息重定向：如果上一步没有返回值为 `nil`，则利用 `-methodSignatureForSelector:`方法获取函数的参数和返回值类型。
+        1. 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
+            2. 如果 `-methodSignatureForSelector:` 返回 `nil`。则 Runtime 系统会发出 `-doesNotRecognizeSelector:` 消息，程序也就崩溃了。
