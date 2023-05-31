@@ -213,3 +213,8 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 如果上一步中 `+resolveInstanceMethod:` 或者 `+resolveClassMethod:` 没有添加其他函数实现，运行时就会进行下一步：消息接受者重定向。
 
 如果当前对象实现了 `-forwardingTargetForSelector:`，Runtime 就会调用这个方法，允许我们将消息的接受者转发给其他对象。
+用到的方法：
+```c
+1. `// 重定向方法的消息接收者，返回一个类或实例对象`
+2. `- (id)forwardingTargetForSelector:(SEL)aSelector;`
+```
