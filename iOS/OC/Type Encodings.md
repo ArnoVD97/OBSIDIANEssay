@@ -6,6 +6,20 @@ char *buf3 = @encode(Rectangle);
 ```
 下表列出了类型代码。请注意，其中许多与您为归档或分发目的对对象进行编码时使用的代码重叠。然而，这里列出了一些代码，您在编写编码器时不能使用，在编写编码器时，您可能想要使用一些代码，这些代码不是由@encode()生成的。（有关用于归档或分发的编码对象的更多信息，请参阅基础框架参考中的NSCoder类规范。）
 
-| code | meaning |
-| ---- | ------- |
-|      |         |
+| code | meaning                                                    |
+| ---- | ---------------------------------------------------------- |
+| c    | char                                                       |
+| i    | int                                                        |
+| s    | short                                                      |
+| l    | A long is treated as a 32-bit quantity on 64-bit programs. |
+| q    | long long                                                  |
+| C    | unsigned char                                              |
+| I    | unsigned Int                                               |
+| S    | unsigned short                                             |
+| L    | unsigned long                                              |
+| Q    | unsigned long long                                         |
+| B    | A C++ `bool` or a C99 `_Bool`                              |
+| d    | double                                                     |
+| f    | float                                                      |
+| v    | void                                                       |
+| *     |                                                            |
