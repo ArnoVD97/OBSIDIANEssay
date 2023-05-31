@@ -218,3 +218,148 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 1. `// 重定向方法的消息接收者，返回一个类或实例对象`
 2. `- (id)forwardingTargetForSelector:(SEL)aSelector;`
 ```
+注意：这里`+resolveInstanceMethod:` 或者 `+resolveClassMethod:`无论是返回 `YES`，还是返回 `NO`，只要其中没有添加其他函数实现，运行时都会进行下一步。
+例子
+```objective-c
+1. `#import "ViewController.h"`
+2. `#include "objc/runtime.h"`
+
+4. `@interface Person : NSObject`
+
+6. `- (void)fun;`
+
+8. `@end`
+
+10. `@implementation Person`
+
+12. `- (void)fun {`
+13. `NSLog(@"fun");`
+14. `}`
+
+16. `@end`
+
+18. `@interface ViewController ()`
+
+20. `@end`
+
+22. `@implementation ViewController`
+
+24. `- (void)viewDidLoad {`
+25. `[super viewDidLoad];`
+
+27. `// 执行 fun 方法`
+28. `[self performSelector:@selector(fun)];`
+29. `}`
+
+31. `+ (BOOL)resolveInstanceMethod:(SEL)sel {`
+32. `return YES; // 为了进行下一步 消息接受者重定向`
+33. `}`
+
+35. `// 消息接受者重定向`
+36. `- (id)forwardingTargetForSelector:(SEL)aSelector {`
+37. `if (aSelector == @selector(fun)) {`
+38. `return [[Person alloc] init];`
+39. `// 返回 Person 对象，让 Person 对象接收这个消息`
+40. `}`
+
+42. `return [super forwardingTargetForSelector:aSelector];`
+43. `}`
+```
+>打印结果：  
+2019-06-12 17:34:05.027800+0800 runtime[19495:8232512] fun
+
+可以看到，虽然当前 `ViewController` 没有实现 `fun` 方法，`+resolveInstanceMethod:` 也没有添加其他函数实现。但是我们通过 `forwardingTargetForSelector` 把当前 `ViewController` 的方法转发给了 `Person` 对象去执行了。打印结果也证明我们成功实现了转发。
+
+我们通过 `forwardingTargetForSelector` 可以修改消息的接收者，该方法返回参数是一个对象，如果这个对象是不是 `nil`，也不是 `self`，系统会将运行的消息转发给这个对象执行。否则，继续进行下一步：消息重定向流程。
+## 4.3消息重定向
+
+如果经过消息动态解析、消息接受者重定向，Runtime 系统还是找不到相应的方法实现而无法响应消息，Runtime 系统会利用 `-methodSignatureForSelector:`方法获取函数的参数和返回值类型。
+
+- 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
+    - 如果 `-methodSignatureForSelector:` 返回 `nil`。则 Runtime 系统会发出 `-doesNotRecognizeSelector:` 消息，程序也就崩溃了。
+
+所以我们可以在 `-forwardInvocation:` 方法中对消息进行转发。
+
+用到的方法：
+```c
+1. `// 获取函数的参数和返回值类型，返回签名`
+2. `- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;`
+
+4. `// 消息重定向`
+5. `- (void)forwardInvocation:(NSInvocation *)anInvocation；`
+```
+举个例子：
+```c
+1. `#import "ViewController.h"`
+2. `#include "objc/runtime.h"`
+
+4. `@interface Person : NSObject`
+
+6. `- (void)fun;`
+
+8. `@end`
+
+10. `@implementation Person`
+
+12. `- (void)fun {`
+13. `NSLog(@"fun");`
+14. `}`
+
+16. `@end`
+
+18. `@interface ViewController ()`
+
+20. `@end`
+
+22. `@implementation ViewController`
+
+24. `- (void)viewDidLoad {`
+25. `[super viewDidLoad];`
+
+27. `// 执行 fun 函数`
+28. `[self performSelector:@selector(fun)];`
+29. `}`
+
+31. `+ (BOOL)resolveInstanceMethod:(SEL)sel {`
+32. `return YES; // 为了进行下一步 消息接受者重定向`
+33. `}`
+
+35. `- (id)forwardingTargetForSelector:(SEL)aSelector {`
+36. `return nil; // 为了进行下一步 消息重定向`
+37. `}`
+
+39. `// 获取函数的参数和返回值类型，返回签名`
+40. `- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {`
+41. `if ([NSStringFromSelector(aSelector) isEqualToString:@"fun"]) {`
+42. `return [NSMethodSignature signatureWithObjCTypes:"v@:"];`
+43. `}`
+
+45. `return [super methodSignatureForSelector:aSelector];`
+46. `}`
+
+48. `// 消息重定向`
+49. `- (void)forwardInvocation:(NSInvocation *)anInvocation {`
+50. `SEL sel = anInvocation.selector; // 从 anInvocation 中获取消息`
+
+52. `Person *p = [[Person alloc] init];`
+
+54. `if([p respondsToSelector:sel]) { // 判断 Person 对象方法是否可以响应 sel`
+55. `[anInvocation invokeWithTarget:p]; // 若可以响应，则将消息转发给其他对象处理`
+56. `} else {`
+57. `[self doesNotRecognizeSelector:sel]; // 若仍然无法响应，则报错：找不到响应方法`
+58. `}`
+59. `}`
+60. `@end`
+```
+> 打印结果：  
+2019-06-13 13:23:06.935624+0800 runtime[30032:8724248] fun
+
+可以看到，我们在 `-forwardInvocation:` 方法里面让 `Person` 对象去执行了 `fun` 函数。
+
+既然 `-forwardingTargetForSelector:` 和 `-forwardInvocation:` 都可以将消息转发给其他对象处理，那么两者的区别在哪？
+
+区别就在于 `-forwardingTargetForSelector:` 只能将消息转发给一个对象。而 `-forwardInvocation:` 可以将消息转发给多个对象。
+
+以上就是 Runtime 消息转发的整个流程。
+
+结合之前讲的 **2. 消息机制的基本原理**，就构成了整个消息发送以及转发的流程。下面我们来总结一下整个流程。
