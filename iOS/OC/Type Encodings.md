@@ -35,5 +35,4 @@ char *buf3 = @encode(Rectangle);
 
 重要信息：Objective-C不支持long double类型。@encode(long double)返回d，这与double的编码相同。
 数组的类型代码包含在方括号内；数组中的元素数量立即在打开的括号之后，在数组类型之前指定。例如，一个由12个指针组成的数组将被编码为：
-|eg
-| [12^f] |
+[12^f] 
