@@ -1,3 +1,4 @@
+[[RunTime-One]]
 Runtime 在实际开发过程中，具体的应用场景。
 这一篇我们来学习一下被称为 Runtime 运行时系统中最具争议的黑魔法：**Method Swizzling（动态方法交换）**
 # 1. Method Swizzling（动态方法交换）简介
@@ -23,3 +24,52 @@ Method swizzling 修改了 method list（方法列表），使得不同 `Method
 # 2. Method Swizzling 使用方法
 
 假如当前类中有两个方法：`- (void)originalFunction;` 和 `- (void)swizzledFunction;`。如果我们想要交换两个方法的实现，从而实现调用 `- (void)originalFunction;` 方法实际上调用的是 `- (void)swizzledFunction;` 方法，而调用 `- (void)swizzledFunction;` 方法实际上调用的是 `- (void)originalFunction;` 方法的效果。那么我们需要像下边代码一样来实现。
+## 2.1 Method Swizzling 简单使用
+在当前类的 `+ (void)load;` 方法中增加 Method Swizzling 操作，交换 `- (void)originalFunction;` 和 `- (void)swizzledFunction;` 的方法实现。
+```objective-c
+1. `#import "ViewController.h"`
+2. `#import <objc/runtime.h>`
+
+4. `@interface ViewController ()`
+
+6. `@end`
+
+8. `@implementation ViewController`
+
+10. `- (void)viewDidLoad {`
+11. `[super viewDidLoad];`
+
+13. `[self SwizzlingMethod];`
+14. `[self originalFunction];`
+15. `[self swizzledFunction];`
+16. `}`
+
+18. `// 交换 原方法 和 替换方法 的方法实现`
+19. `- (void)SwizzlingMethod {`
+20. `// 当前类`
+21. `Class class = [self class];`
+
+23. `// 原方法名 和 替换方法名`
+24. `SEL originalSelector = @selector(originalFunction);`
+25. `SEL swizzledSelector = @selector(swizzledFunction);`
+
+27. `// 原方法结构体 和 替换方法结构体`
+28. `Method originalMethod = class_getInstanceMethod(class, originalSelector);`
+29. `Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);`
+
+31. `// 调用交换两个方法的实现`
+32. `method_exchangeImplementations(originalMethod, swizzledMethod);`
+33. `}`
+
+35. `// 原始方法`
+36. `- (void)originalFunction {`
+37. `NSLog(@"originalFunction");`
+38. `}`
+
+40. `// 替换方法`
+41. `- (void)swizzledFunction {`
+42. `NSLog(@"swizzledFunction");`
+43. `}`
+
+45. `@end`
+```
