@@ -206,3 +206,6 @@ OC运行时调用+resolveInstanceMethod：或者+resolveClassMethod：，让你�
 ```
 > 打印结果：  
 2019-06-12 10:25:39.848260+0800 runtime[14884:7977579] funMethod
+
+从上边的例子中，我们可以看出，虽然我们没有实现 `fun` 方法，但是通过重写 `resolveInstanceMethod:` ，利用 `class_addMethod` 方法添加对象方法实现 `funMethod` 方法，并执行。从打印结果来看，成功调起了`funMethod` 方法。
+我们注意到 class_addMethod 方法中的特殊参数 `v@:`，具体可参考官方文档中关于 [[Type Encodings]] 的说明：[传送门](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100)
