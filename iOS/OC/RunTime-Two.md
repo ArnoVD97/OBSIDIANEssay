@@ -73,3 +73,17 @@ Method swizzling 修改了 method list（方法列表），使得不同 `Method
 
 45. `@end`
 ```
+> 打印结果：  
+2019-07-12 09:59:19.672349+0800 Runtime-MethodSwizzling[91009:30112833] swizzledFunction  
+2019-07-12 09:59:20.414930+0800 Runtime-MethodSwizzling[91009:30112833] originalFunction
+
+可以看出两者方法成功进行了交换。
+刚才我们简单演示了如何在当前类中如何进行 Method Swizzling 操作。但一般日常开发中，并不是直接在原有类中进行 Method Swizzling 操作。更多的是为当前类添加一个分类，然后在分类中进行 Method Swizzling 操作。另外真正使用会比上边写的考虑东西要多一点，要复杂一些。
+
+在日常使用 Method Swizzling 的过程中，有几种很常用的方案，具体情况如下。
+## 2.1 Method Swizzling 方案 A
+> 在该类的分类中添加 Method Swizzling 交换方法，用普通方式
+
+这种方式在开发中应用最多的。但是还是要注意一些事项，我会在接下来的 **3. Method Swizzling 使用注意** 进行详细说明。
+```ob
+```
