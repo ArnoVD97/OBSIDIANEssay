@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/Swift/元祖（RX-78）.md",
+                "file": "iOS/Swift/元组（RX-78）.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/Swift/元祖（RX-78）.md",
+                "file": "iOS/Swift/元组（RX-78）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/Swift/元祖（RX-78）.md",
+                "file": "iOS/Swift/元组（RX-78）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/Swift/元祖（RX-78）.md"
+                "file": "iOS/Swift/元组（RX-78）.md"
               }
             }
           },
@@ -166,7 +166,7 @@
   "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
     "iOS/OC/容器类SET集合.md",
-    "iOS/Swift/元祖（RX-78）.md",
+    "iOS/Swift/元组（RX-78）.md",
     "iOS/OC/RunTime-Two.md",
     "iOS/OC/RunTime-One.md",
     "iOS/OC/Pasted image 20230410214015.png",
