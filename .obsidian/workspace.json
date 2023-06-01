@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/Swift/元组（RX-78）.md",
+                "file": "iOS/Swift/字符，字符串，集合.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "7a819dd1a6fd6c8d",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/Swift/元组（RX-78）.md",
+                "file": "iOS/Swift/字符，字符串，集合.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/Swift/元组（RX-78）.md",
+                "file": "iOS/Swift/字符，字符串，集合.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/Swift/元组（RX-78）.md"
+                "file": "iOS/Swift/字符，字符串，集合.md"
               }
             }
           },
@@ -165,19 +166,20 @@
   },
   "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
+    "iOS/OC/isa指针.md",
+    "iOS/OC/RunTime-One.md",
+    "iOS/Swift/元组（RX-78）.md",
+    "iOS/Swift/字符，字符串，集合.md",
     "iOS/Swift/隐式解析的语法结构.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/容器类SET集合.md",
     "iOS/OC/实用内存管理.md",
     "iOS/OC/KVO.md",
-    "iOS/Swift/元组（RX-78）.md",
     "iOS/Swift/可选链.md",
     "iOS/OC/RunTime-Two.md",
-    "iOS/OC/RunTime-One.md",
     "iOS/OC/Pasted image 20230410214015.png",
     "iOS/OC/Pasted image 20230410214028.png",
     "iOS/OC/MVVM设计模式.md",
-    "iOS/OC/isa指针.md",
     "iOS/OC/IMP方法实现.md",
     "iOS/OC/iOS使用特殊字体.md",
     "iOS/OC/Block.md",
@@ -205,7 +207,6 @@
     "微机原理/微型计算机基础概论.md",
     "iOS/Swift",
     "未命名",
-    "C++/考试.md",
     "未命名.canvas",
     "操作系统",
     "微机原理",
