@@ -345,3 +345,8 @@ method_exchangeImplementations(Method _Null_unspecified /* _Nonnull */ m1, Metho
 
 ```
 
+最后的打印结果是你想的吗？
+2017-07-20 13:23:14.804342+0800 zyTest[16764:910790] exchangeMethod3:Runtime Method Demo2
+2017-07-20 13:23:14.804586+0800 zyTest[16764:910790] exchangeMethod3:Runtime Method Demo3
+2017-07-20 13:23:14.804738+0800 zyTest[16764:910790] exchangeMethod2:Runtime Method Demo4
+2017-07-20 13:23:14.817341+0800 zyTest[16764:910790] exchangeMethod2:Runtime Method Demo
