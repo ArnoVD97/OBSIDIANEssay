@@ -31,7 +31,7 @@ void (^block)(void) = ^{
 block(); // 输出：Outside variable: 10
 ```
 在这个例子中，块捕获了外部的 `outsideVariable` 变量，并在块内部访问它。
-默认情况下，为块所捕获的变量是不可以在块里面修改的，如果修改了outsideVariale的值，就会报错，声明变量的时候可以加上_block修饰符，这样就可以在块内修改了
+默认情况下，为块所捕获的变量是不可以在块里面修改的，如果修改了outsideVariale的值，就会报错，声明变量的时候可以加上__block修饰符，这样就可以在块内修改了
 ```objc
 
 ```
