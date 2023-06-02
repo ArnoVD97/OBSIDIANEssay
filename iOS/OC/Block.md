@@ -79,4 +79,32 @@ block(); // 输出：Outside variable: 10
 
     // 需要注意的是(self也是一个对象，也会被保留），如果在块内部使用了实例变量，块会自动对self进行保留操作，以确保在块执行期间保持对象的有效性。但是，如果在块内部直接使用了self，并对其进行读取或写入操作，那么self也会被捕获，从而导致循环引用的问题。为了避免循环引用，可以在块内部使用__weak修饰符来避免对self进行保留操作。
 ```
+如果某个实例在执行anInstanceMethod放法，那么self变量就会指向此实例。由于块里没有明确使用self变量，所以很容易就会忘记self变量其实也为块所捕获了。直接访问实例遍历和通过self来访问时等效的：  
+self->_anInstanceVariable = @"someThing";
+
+
+```objective-c
+typedef void(^SomeBlock) (void);
+@property (nonatomic, copy) BlockName someBlock;
+`- (void)anInstanceMethod {
+     self.someBlock = ^ {
+          _anInstanceVariable = @"someThing";
+     }
+     
+ }
+```
+self也是个对象，因而块在捕获它时也会将其保留。如果self所指代的那个对象同时也保留了块，那么这种情况就会导致“保留环”  
+修改为以下代码即可：
+```objective-c
+typedef void(^SomeBlock) (void);
+@property (nonatomic, copy) BlockName someBlock;
+__weak typeof(self)weakSelf = self;
+`- (void)anInstanceMethod {
+     self.someBlock = ^ {
+          weakSelf.anInstanceVariable = @"someThing";
+     }
+     
+ }
+```
+
 # 块的内部结构
