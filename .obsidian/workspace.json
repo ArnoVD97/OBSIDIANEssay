@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "iOS/Swift/字符，字符串，集合.md",
+                "file": "iOS/OC/Block.md",
                 "mode": "source",
                 "source": false
               }
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/Swift/字符，字符串，集合.md",
+                "file": "iOS/OC/Block.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/Swift/字符，字符串，集合.md",
+                "file": "iOS/OC/Block.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/Swift/字符，字符串，集合.md"
+                "file": "iOS/OC/Block.md"
               }
             }
           },
@@ -151,7 +151,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -166,10 +167,10 @@
   },
   "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
+    "iOS/Swift/字符，字符串，集合.md",
     "iOS/OC/isa指针.md",
     "iOS/OC/RunTime-One.md",
     "iOS/Swift/元组（RX-78）.md",
-    "iOS/Swift/字符，字符串，集合.md",
     "iOS/Swift/隐式解析的语法结构.md",
     "iOS/OC/内存管理.md",
     "iOS/OC/容器类SET集合.md",
