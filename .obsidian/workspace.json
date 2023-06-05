@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "iOS/OC/BlockTwo.md",
+                "file": "iOS/OC/Block.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "iOS/OC/BlockTwo.md",
+                "file": "iOS/OC/Block.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "iOS/OC/BlockTwo.md"
+                "file": "iOS/OC/Block.md"
               }
             }
           },
@@ -177,10 +176,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "18899b2f02fc5828",
+  "active": "65eb7bb94fefc9b2",
   "lastOpenFiles": [
-    "iOS/OC/Block.md",
     "iOS/OC/BlockTwo.md",
+    "iOS/OC/Block.md",
     "iOS/OC/RunTime-Two.md",
     "iOS/OC/RunTime-One.md",
     "C++/面向对象的程序设计.md",
