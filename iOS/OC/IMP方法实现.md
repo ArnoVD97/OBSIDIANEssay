@@ -1,4 +1,5 @@
 #### 方法的本质
+[[isa指针]]
 
 方法的本质其实就是`objc_msgSend`消息发送，objc_msgSend的参数有
 

@@ -73,6 +73,7 @@
 2. 成员变量 `Desc` 指针;  
  3. `__main_block_impl_0` 构造函数。
 ## `struct __block_impl impl` 说明
+
 第一部分 `impl` 是 `__block_impl` 结构体类型的成员变量。`__block_impl` 包含了 Block 实际函数指针 `FuncPtr`，`FuncPtr` 指针指向 Block 的主体部分，也就是 Block 对应 OC 代码中的 `^{ printf("myBlock\n"); };` 部分。还包含了标志位 `Flags`，今后版本升级所需的区域大小  `Reserved`，`__block_impl` 结构体的实例指针 `isa`。
 ```c++
 1. `/* 包含 Block 实际函数指针的结构体 */`
@@ -83,4 +84,48 @@
 6.   `void *FuncPtr;      // 函数指针`
 7. `};`
 ```
- 
+## `struct __main_block_desc_0* Desc` 说明
+第二部分 Desc 是指向的是 `__main_block_desc_0` 类型的结构体的指针型成员变量，`__main_block_desc_0` 结构体用来描述该 Block 的相关附加信息：
+
+1. 今后版本升级所需区域大小： `reserved` 变量。
+2. Block 大小：`Block_size` 变量。
+ ```c++
+ 1. `/* Block 附加信息结构体：包含今后版本升级所需区域大小，Block 的大小*/`
+2. `static struct __main_block_desc_0 {`
+3. `size_t reserved;      // 今后版本升级所需区域大小`
+4. `size_t Block_size;  // Block 大小`
+5. `} __main_block_desc_0_DATA = { 0, sizeof(struct __main_block_impl_0)};`
+```
+
+## `__main_block_impl_0` 构造函数说明
+第三部分是 `__main_block_impl_0` 结构体（Block 结构体） 的构造函数，负责初始化 `__main_block_impl_0` 结构体（Block 结构体） 的成员变量。
+```c++
+1. `__main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {`
+2. `impl.isa = &_NSConcreteStackBlock;`
+3.     `impl.Flags = flags;`
+4.     `impl.FuncPtr = fp;`
+5.     `Desc = desc;`
+6. `}`
+```
+关于结构体构造函数中对各个成员变量的赋值，我们需要先来看看 `main()` 函数中，对该构造函数的调用。
+```c++
+void (*myBlock)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA));
+```
+我们可以把上面的代码稍微转换一下，去掉不同类型之间的转换，使之简洁一点：
+```c++
+1. `struct __main_block_impl_0 temp = __main_block_impl_0(__main_block_func_0, &__main_block_desc_0_DATA);`
+2. `struct __main_block_impl_0 myBlock = &temp;`
+```
+这样，就容易看懂了。该代码将通过 `__main_block_impl_0` 构造函数，生成的 `__main_block_impl_0` 结构体（Block 结构体）类型实例的指针，赋值给 `__main_block_impl_0` 结构体（Block 结构体）类型的指针变量 `myBlock`。
+
+可以看到， 调用 `__main_block_impl_0` 构造函数的时候，传入了两个参数。
+
+1. 第一个参数：`__main_block_func_0`。  
+        - 其实就是 Block 对应的主体部分，可以看到下面关于 `__main_block_func_0` 结构体的定义 ，和 OC 代码中 `^{ printf("myBlock\n"); };` 部分具有相同的表达式。  
+        - 这里参数中的 `__cself` 是指向 Block 的值的指针变量，相当于 OC 中的 `self`。  
+
+    `c++ /* Block 主体部分结构体 */ static void __main_block_func_0(struct __main_block_impl_0 *__cself) {      printf("myBlock\n"); }`     
+
+2. 第二个参数：`__main_block_desc_0_DATA`：`__main_block_desc_0_DATA` 包含该 Block 的相关信息。  
+    我们再来结合之前的 `__main_block_impl_0` 结构体定义。  
+    - `__main_block_impl_0` 结构体（Block 结构体）可以表述为：
