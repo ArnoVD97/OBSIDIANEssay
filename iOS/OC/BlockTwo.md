@@ -72,4 +72,6 @@
 1. 成员变量 `impl`;
 2. 成员变量 `Desc` 指针;  
  3. `__main_block_impl_0` 构造函数。
+## `struct __block_impl impl` 说明
+第一部分 `impl` 是 `__block_impl` 结构体类型的成员变量。`__block_impl` 包含了 Block 实际函数指针 `FuncPtr`，`FuncPtr` 指针指向 Block 的主体部分，也就是 Block 对应 OC 代码中的 `^{ printf("myBlock\n"); };` 部分。还包含了标志位 `Flags`，今后版本升级所需的区域大小  `Reserved`，`__block_impl` 结构体的实例指针 `isa`。
  
