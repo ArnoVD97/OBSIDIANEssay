@@ -129,3 +129,12 @@ void (*myBlock)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_f
 2. 第二个参数：`__main_block_desc_0_DATA`：`__main_block_desc_0_DATA` 包含该 Block 的相关信息。  
     我们再来结合之前的 `__main_block_impl_0` 结构体定义。  
     - `__main_block_impl_0` 结构体（Block 结构体）可以表述为：
+```c++
+1. `struct __main_block_impl_0 {`
+2.      `void *isa;               // 用于保存 Block 结构体的实例指针`
+3.     `int Flags;               // 标志位`
+4.     `int Reserved;        // 今后版本升级所需的区域大小`
+5.     `void *FuncPtr;      // 函数指针`
+6.     `struct __main_block_desc_0* Desc;      // Desc：Desc 指针`
+7. `};`
+```
