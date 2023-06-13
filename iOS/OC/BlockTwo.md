@@ -138,3 +138,10 @@ void (*myBlock)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_f
 6.     `struct __main_block_desc_0* Desc;      // Desc：Desc 指针`
 7. `};`
 ```
+- `__main_block_impl_0` 构造函数可以表述为：
+```c++
+1. `impl.isa = &_NSConcreteStackBlock;    // isa 保存 Block 结构体实例`
+2. `impl.Flags = 0;        // 标志位赋值`
+3. `impl.FuncPtr = __main_block_func_0;    // FuncPtr 保存 Block 结构体的主体部分`
+4. `Desc = &__main_block_desc_0_DATA;    // Desc 保存 Block 结构体的附加信息`
+```
