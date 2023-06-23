@@ -6,3 +6,6 @@
 有两个视图控制器 A 和 B，现在点击 A 上的按钮跳转到视图 B ，并在 B 中的textfield 输入字符串，点击 B 中的跳转按钮跳转回 A ，并将之前输入的字符串
 
 显示在 A 中的 label 上。也就是说 A 视图中需要回调 B 视图中的数据。
+![[Pasted image 20230623170202.png]]
+![[Pasted image 20230623170242.png]]![[Pasted image 20230623170251.png]]
+block回调传值
