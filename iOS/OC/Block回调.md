@@ -88,10 +88,7 @@ bVC.callBackBlock = ^(NSString *text){
 通过这个小例子发现的两个问题，也算是值得了。
 ## 为什么能实现回调
 回顾一下我们在 B 中所实现的代码，不外乎定义了一个 Block 变量，并在适当的时候传入参数，那么为什么在调用了  `self.callBackBlock(_textField.text)` 之后，值就神奇传到了 A 中的 Block 块了呢？
-
-通过整理使用的过程，我发现是我们的思维陷入了误区（可能是我个人），我们认为在 B 中传入 `_textField.text` 参数之后， A 中的 Block 块就可以获取到值。虽然思路是对的，但其实是不完整，导致我们形成了回调的数据是通过某种底层实现传递过去的错觉，这就使得我们认为这不需要深究。
-
-事实是，通过简单的整理我们可以发现完整的回调流程应该是这样的：
+通过简单的整理我们可以发现完整的回调流程应该是这样的：
 ![[Pasted image 20230623172613.png]]
 当将一个 Block 代码块赋值给 `bVC.callBackBlock` 后，`callBackBlock` 的指针就指向了这个 Block 代码块。之后，可以通过调用 `callBackBlock(NSString *text)` 来执行这个 Block 代码块，并实现回调功能。
 ```objc
@@ -111,4 +108,23 @@ if (bVC.callBackBlock) {
 
 ```
 我按照我的理解说一下这个流程，如果没有回调函数那么这个block代码块不会被运行
-只有运行到B页面的时候，使用了回调函数，才会执行block代码块里面的内容，回调函数的作用是调用这个匿名函数，并且chuan hui
+只有运行到B页面的时候，使用了回调函数，才会执行block代码块里面的内容，回调函数的作用是调用这个匿名函数，并且传回一个值给我们使用的block代码块
+```objc
+// 声明一个带有回调参数的方法
+- (void)performOperationWithCompletion:(void (^)(NSString *result))completion {
+    // 执行一些操作
+    NSString *result = @"Operation completed";
+    
+    // 调用回调Block并传递结果
+    if (completion) {
+        completion(result);
+    }
+}
+
+// 调用带有回调参数的方法
+[self performOperationWithCompletion:^(NSString *result) {
+    NSLog(@"Result: %@", result);
+}];
+
+```
+如果像这样使用方法来调用的话，在方法实现需要要使用回调函数，然后回跳转到调用该方法的地方，继续执行block块里面的的内容。
