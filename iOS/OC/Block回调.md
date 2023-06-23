@@ -8,13 +8,13 @@
 显示在 A 中的 label 上。也就是说 A 视图中需要回调 B 视图中的数据。
 ![[Pasted image 20230623170202.png]]
 ![[Pasted image 20230623170242.png]]![[Pasted image 20230623170251.png]]
-block回调传值是一个从后面向前传递值的一个过程，这个即这个块应该定义在B页面内，重命名一个块，你会的到两个函数，一个是调用函数，一个是回调函数，我们的网络请求用的就是block回调传值在网络请求中的manager就使用的是回调函数充当B页面，而需要调用数据的页面使用的是调用函数，可以获得回调函数中的数据，
+block回调传值是一个从后面向前传递值的一个过程，这个即这个块应该定义在B页面内，重命名一个块，你会的到两个函数，一个是块函数，一个是回调函数，我们的网络请求用的就是block回调传值在网络请求中的manager就使用的是回调函数充当B页面，而需要调用数据的页面使用块，可以获得回调函数中的数据，
 ```objc
     BVC.callBackData(NSString  _Nonnull data#);
 //回调函数（传值函数）用用于传入回调数据
 
     BVC.callBackData = ^(NSString  _Nonnull data)
-    //调用函数
+    //普通的块，他会调用回调函数来获取里面的数据
 
 //BViewController.h
 #import <UIKit/UIKit.h>
@@ -93,3 +93,20 @@ bVC.callBackBlock = ^(NSString *text){
 
 事实是，通过简单的整理我们可以发现完整的回调流程应该是这样的：
 ![[Pasted image 20230623172613.png]]
+当将一个 Block 代码块赋值给 `bVC.callBackBlock` 后，`callBackBlock` 的指针就指向了这个 Block 代码块。之后，可以通过调用 `callBackBlock(NSString *text)` 来执行这个 Block 代码块，并实现回调功能。
+```objc
+// 定义一个 Block 代码块
+void (^myBlock)(NSString *text) = ^(NSString *text) {
+    // 执行一些代码
+    NSLog(@"%@", text);
+};
+
+// 将 Block 代码块赋值给 callBackBlock
+bVC.callBackBlock = myBlock;
+
+// 调用 callBackBlock，执行回调
+if (bVC.callBackBlock) {
+    bVC.callBackBlock(@"Hello, World!");
+}
+
+```
